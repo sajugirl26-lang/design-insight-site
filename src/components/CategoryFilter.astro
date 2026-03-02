@@ -22,7 +22,7 @@ const activeCategories = categories.filter(c => c.count > 0);
 
 <style>
   .category-filter {
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
     position: relative;
   }
   .filter-scroll {
@@ -42,34 +42,34 @@ const activeCategories = categories.filter(c => c.count > 0);
     background: transparent;
     border: 1px solid var(--color-border);
     color: var(--color-text-secondary);
-    padding: 0.35rem 0.75rem;
-    border-radius: 6px;
+    padding: 0.4rem 0.875rem;
+    border-radius: var(--radius-full);
     cursor: pointer;
-    font-family: var(--font-label);
     font-size: var(--fs-xs);
     font-weight: 500;
+    font-family: var(--font-sans);
     transition: all var(--duration) var(--ease);
     white-space: nowrap;
   }
   .filter-btn:hover {
     border-color: var(--color-accent);
-    color: var(--color-accent);
+    color: var(--color-text);
     background: var(--color-accent-dim);
   }
   .filter-btn.active {
     background: var(--color-accent);
     border-color: var(--color-accent);
-    color: #0a0a0a;
+    color: white;
     font-weight: 600;
   }
   .count {
-    font-size: 0.625rem;
-    opacity: 0.5;
+    font-size: 0.65rem;
+    opacity: 0.6;
     margin-left: 0.25rem;
     font-weight: 400;
   }
   .filter-btn.active .count {
-    opacity: 0.7;
+    opacity: 0.85;
   }
 
   @media (max-width: 768px) {
