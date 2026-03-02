@@ -4,6 +4,8 @@ interface Props {
   description?: string;
 }
 
+import '../styles/global.css';
+
 const { title, description = "해외 디자인 유튜버 25명의 인사이트를 한국어로 큐레이션" } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const currentPath = Astro.url.pathname.replace(base, '') || '/';
@@ -24,7 +26,6 @@ const currentPath = Astro.url.pathname.replace(base, '') || '/';
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href={`${base}/styles/global.css`} />
   </head>
   <body>
     <header class="site-header">
