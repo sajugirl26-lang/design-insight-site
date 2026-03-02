@@ -1,0 +1,2043 @@
+{
+  "items": [
+    {
+      "id": "02pIjfgNxQ0",
+      "title": "After Effects의 새로운 기능 + 새 SOM 강좌! | 모션 먼데이스",
+      "channel": "School of Motion",
+      "summary": "모션 업계 주간 뉴스: AE 신기능, AI 인식, 도구 소개",
+      "keywords": [
+        "모션 디자인",
+        "After Effects",
+        "Frame rate",
+        "Substance Painter",
+        "AI 위협 인식",
+        "Cinema 4D",
+        "가우시안 스플랫",
+        "Mesh Capade",
+        "ReCraft",
+        "모션 업계 현황"
+      ],
+      "categories": [
+        "motion_3d",
+        "tools_workflow",
+        "industry_opinion"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "0GjDdrgG81E",
+      "title": "새 강좌 | 모션 디자이너를 위한 Substance Painter!",
+      "channel": "School of Motion",
+      "summary": "모션 디자이너 관점의 Substance Painter 강좌 출시",
+      "keywords": [
+        "Substance Painter",
+        "텍스처링",
+        "모션 디자인",
+        "Cinema 4D",
+        "Blender",
+        "UV",
+        "UDIM",
+        "3D 워크플로우",
+        "EJ Hosen Fratz"
+      ],
+      "categories": [
+        "motion_3d",
+        "tutorial_technique"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "0Zxo5H5mHQU",
+      "title": "CGI 불은 얼마나 사실적일 수 있을까?",
+      "channel": "Corridor Crew",
+      "summary": "아바타 시리즈 VFX 팀이 양초부터 대규모 화재까지 물리 기반 CGI 불 시뮬레이션의 발전 과정을 설명합니다.",
+      "keywords": [
+        "CGI fire simulation",
+        "Avatar VFX",
+        "physics-based rendering",
+        "fluid dynamics",
+        "artist workflow",
+        "Weta Digital"
+      ],
+      "categories": [
+        "motion_3d",
+        "tutorial_technique"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "18W9WC-H24w",
+      "title": "Procreate에서 픽셀 아트 만드는 방법",
+      "channel": "eyedesyn",
+      "summary": "Procreate에서 저해상도 캔버스, 커스텀 사각형 브러시, 최근접 이웃 보간법을 활용한 픽셀 아트 제작 튜토리얼입니다.",
+      "keywords": [
+        "Procreate",
+        "pixel art",
+        "custom brush",
+        "nearest neighbor interpolation",
+        "digital illustration",
+        "sprite art"
+      ],
+      "categories": [
+        "tutorial_technique",
+        "tools_workflow"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "1HN7mbHIH0Q",
+      "title": "고어 버빈스키가 말하는 영화 제작의 가장 큰 변화",
+      "channel": "Corridor Crew",
+      "summary": "고어 버빈스키 감독이 iPad 기반 실시간 조명 색온도 제어를 영화 제작의 가장 혁명적인 변화로 꼽습니다.",
+      "keywords": [
+        "Gore Verbinski",
+        "filmmaking",
+        "LED lighting",
+        "color temperature",
+        "iPad control",
+        "real-time lighting",
+        "film production"
+      ],
+      "categories": [
+        "motion_3d",
+        "tools_workflow",
+        "industry_opinion"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "1nufRGN5Flg",
+      "title": "드림 시퀀스 3D 챌린지 론칭 스트림! | 템플릿, FAQ, 아이디어 구상",
+      "channel": "Pwnisher",
+      "summary": "Pwnisher의 12번째 3D 커뮤니티 챌린지 '드림 시퀀스' 론칭 스트림으로, Blender 카메라 템플릿과 참여 가이드를 다룹니다.",
+      "keywords": [
+        "3D challenge",
+        "Blender",
+        "camera template",
+        "community art",
+        "Pwnisher",
+        "motion design",
+        "Dream Sequence"
+      ],
+      "categories": [
+        "motion_3d",
+        "creative_coding",
+        "culture_inspiration"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "2tcwN9g_Ztk",
+      "title": "VFX 아티스트들이 2026 오스카 후보 CGI에 반응하다",
+      "channel": "Corridor Crew",
+      "summary": "2026 오스카 VFX 후보 5편 전문가 분석",
+      "keywords": [
+        "오스카",
+        "시각효과",
+        "VFX",
+        "Avatar 3",
+        "The Lost Bus",
+        "F1",
+        "Sinners",
+        "Jurassic World",
+        "합성",
+        "볼류메트릭 시뮬레이션",
+        "WetaFX"
+      ],
+      "categories": [
+        "motion_3d",
+        "industry_opinion"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "2vaeXG7JwLg",
+      "title": "2026년 궁극의 그래픽 디자인 가이드!",
+      "channel": "Satori Graphics",
+      "summary": "2026년 그래픽 디자인 도구, AI 활용, 워크플로우 자동화를 초보-중급-전문가 수준별로 안내하는 종합 가이드입니다.",
+      "keywords": [
+        "graphic design guide",
+        "workflow automation",
+        "AI in design",
+        "Font Base",
+        "Eagle",
+        "Zapier",
+        "design tools 2026",
+        "freelance design"
+      ],
+      "categories": [
+        "tools_workflow",
+        "career_business",
+        "ai_design"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "36LoWyC5UwM",
+      "title": "Substance Painter에서 Blender와 C4D로 내보내기 | 빠른 팁",
+      "channel": "School of Motion",
+      "summary": "SP 내보내기 시 과도한 광택 문제 해결법",
+      "keywords": [
+        "Substance Painter",
+        "Blender",
+        "Cinema 4D",
+        "스페큘러",
+        "텍스처 내보내기",
+        "셰이더 설정",
+        "러프니스"
+      ],
+      "categories": [
+        "tutorial_technique",
+        "motion_3d"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "3UWrAOgxYi0",
+      "title": "네, 이 책은 진짜입니다",
+      "channel": "Corridor Crew",
+      "summary": "Corridor Crew가 상상력 기반 심리 공포 게임 책을 시네마틱 영상으로 홍보하는 창의적 콘텐츠 마케팅 사례입니다.",
+      "keywords": [
+        "Corridor Crew",
+        "creative marketing",
+        "storytelling",
+        "book promotion",
+        "cinematic content",
+        "psychological horror"
+      ],
+      "categories": [
+        "creative_coding",
+        "culture_inspiration"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "4ewPRXFfLkc",
+      "title": "REACT 에피소드 비하인드 씬",
+      "channel": "Corridor Crew",
+      "summary": "Corridor Crew의 React 에피소드 제작 비하인드와 Dropbox Dash의 AI 기반 통합 검색 기능을 소개합니다.",
+      "keywords": [
+        "Dropbox Dash",
+        "AI search",
+        "post-production",
+        "file management",
+        "workflow optimization",
+        "Corridor Crew"
+      ],
+      "categories": [
+        "tools_workflow"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "4s5Ih04syFE",
+      "title": "\"액션 갭\"은 사라졌다: 완전 자율 AI의 시대",
+      "channel": "Matt Wolfe",
+      "summary": "비전 기반 탐색, 로컬 컨텍스트 게이트웨이, 에이전틱 IDE의 융합으로 AI '액션 갭'이 해소되어 완전 자율 에이전트 시대가 도래했습니다.",
+      "keywords": [
+        "autonomous AI agent",
+        "action gap",
+        "OpenClaw",
+        "agentic IDE",
+        "Anti-gravity",
+        "vision-based navigation",
+        "large action model",
+        "digital sovereignty"
+      ],
+      "categories": [
+        "ai_design",
+        "tools_workflow",
+        "industry_opinion"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "4uopGLxi_fE",
+      "title": "AI 종합: 흥미진진한 에이전트 출시, Nano Banana 2 & 로보틱스!",
+      "channel": "Matt Wolfe",
+      "summary": "Nano Banana 2, AI 로보틱스, 에이전트 최신 동향 종합",
+      "keywords": [
+        "Nano Banana 2",
+        "AI 에이전트",
+        "Nvidia 로보틱스",
+        "Perplexity Computer",
+        "Linum V2",
+        "오픈소스 AI",
+        "SVG 생성",
+        "강화 학습",
+        "Hermes Agent",
+        "Quiver AI"
+      ],
+      "categories": [
+        "ai_design",
+        "creative_coding",
+        "industry_opinion"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "5NvZgHBJDVk",
+      "title": "2026 모션 그래픽 이벤트 총정리! | 모션 먼데이스",
+      "channel": "School of Motion",
+      "summary": "OFFF, FITC, NAB Show, Camp Mograph 등 2026년 주요 모션 디자인 컨퍼런스 일정을 총정리합니다.",
+      "keywords": [
+        "motion design conferences",
+        "OFFF Barcelona",
+        "FITC",
+        "NAB Show",
+        "Camp Mograph",
+        "Making Midwest",
+        "networking events"
+      ],
+      "categories": [
+        "career_business",
+        "culture_inspiration"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "69lOdnqhapM",
+      "title": "저 파일럿은 임금 인상을 받을 자격이 있다",
+      "channel": "Corridor Crew",
+      "summary": "2,000mm 렌즈로 본 압축 효과와 완벽한 착륙",
+      "keywords": [
+        "망원 렌즈",
+        "압축 효과",
+        "2000mm 렌즈",
+        "비행기 착륙",
+        "카메라 테크닉",
+        "열기 아른거림",
+        "텔레포토",
+        "항공 촬영",
+        "VFX 분석"
+      ],
+      "categories": [
+        "motion_3d",
+        "tutorial_technique"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "6kHoeLsq3AM",
+      "title": "ChatGPT가 더 나은 영상 편집자로 만들어줄 수 있다 #Shorts",
+      "channel": "Roberto Blake",
+      "summary": "ChatGPT나 Gemini Pro에게 참고 이미지와 편집 소프트웨어를 알려주면 정확한 색 보정 설정값을 코칭받을 수 있습니다.",
+      "keywords": [
+        "AI coaching",
+        "color grading",
+        "Premiere Pro",
+        "DaVinci Resolve",
+        "ChatGPT",
+        "Gemini Pro",
+        "video editing"
+      ],
+      "categories": [
+        "ai_design",
+        "tutorial_technique",
+        "tools_workflow"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "7LAgJh0xStw",
+      "title": "Gemini 3.1의 모든 것: Claude 4.6을 이기는가, 그리고 어디에 사용할 것인가!",
+      "channel": "Matt Wolfe",
+      "summary": "Gemini 3.1 Pro와 Claude 4.6 모델을 3D 코딩, 웹 디자인, 창의적 종합 과제로 비교 분석한 결과 리뷰",
+      "keywords": [
+        "Gemini 3.1",
+        "Claude 4.6",
+        "LLM comparison",
+        "vibe coding",
+        "3D spatial reasoning",
+        "AI coding",
+        "web design generation"
+      ],
+      "categories": [
+        "ai_design",
+        "tools_workflow",
+        "industry_opinion"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "7PaM08toz2M",
+      "title": "SOM All-Access에 새 채용 게시판 오픈! | 모션 먼데이스",
+      "channel": "School of Motion",
+      "summary": "School of Motion All Access에 150개 이상의 모션 디자인 채용 공고를 제공하는 새로운 채용 게시판이 오픈되었습니다.",
+      "keywords": [
+        "School of Motion",
+        "job board",
+        "motion design careers",
+        "Substance Painter",
+        "stop motion"
+      ],
+      "categories": [
+        "career_business",
+        "tools_workflow",
+        "motion_3d"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "8K_qCXoZ6sU",
+      "title": "K-pop 데몬 헌터스가 다르게 느껴지는 이유",
+      "channel": "Corridor Crew",
+      "summary": "K-pop Demon Hunters는 CG 기반 3D와 2D 요소의 이중 전략으로 코미디와 진지한 감정을 분리하며 Spider-Verse와 차별화된 스타일을 구현했습니다.",
+      "keywords": [
+        "Kpop Demon Hunters",
+        "CG animation",
+        "2D-3D hybrid",
+        "chibi style",
+        "character animation",
+        "female gaze"
+      ],
+      "categories": [
+        "motion_3d",
+        "culture_inspiration",
+        "tutorial_technique"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "939NOouclvM",
+      "title": "당신의 브랜드는 이 테스트를 통과할 수 있을까?!! (브랜드 스토리 챌린지)",
+      "channel": "The Futur",
+      "summary": "낯선 사람도 전달 가능한 브랜드 스토리 만들기",
+      "keywords": [
+        "브랜드 스토리텔링",
+        "메시지 단순화",
+        "기업가 정신",
+        "브랜드 커뮤니케이션",
+        "엘리베이터 피치",
+        "반복 가능한 스토리",
+        "후크",
+        "청중 이해",
+        "브랜드 챌린지",
+        "The Futur"
+      ],
+      "categories": [
+        "branding",
+        "career_business",
+        "industry_opinion"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "9PMrtCGcsSI",
+      "title": "Webflow MCP + Claude Code AI가 당신의 시간을 절약해 줄 것입니다",
+      "channel": "Ran Segall",
+      "summary": "Claude Code + Webflow MCP로 웹사이트 자동 구축 튜토리얼",
+      "keywords": [
+        "Webflow",
+        "MCP",
+        "Claude Code",
+        "AI 자동화",
+        "CMS 관리",
+        "SEO 감사",
+        "웹 디자인 워크플로우",
+        "프롬프트 기반 개발",
+        "노코드",
+        "AI 비서"
+      ],
+      "categories": [
+        "ai_design",
+        "web_design",
+        "tools_workflow"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "_Hp8LjAUkJ0",
+      "title": "대규모 상금의 새 콘서트 비주얼 3D 챌린지 | DREAM SEQUENCE",
+      "channel": "Pwnisher",
+      "summary": "120 BPM 비트 싱크 콘서트 비주얼을 제작하는 Pwnisher의 12번째 3D 커뮤니티 챌린지로, 다양한 스폰서와 대규모 상금이 마련되었다",
+      "keywords": [
+        "3D challenge",
+        "concert visuals",
+        "Touch Designer",
+        "Marvelous Designer",
+        "Kit Bash 3D",
+        "beat sync",
+        "community challenge",
+        "real-time visuals"
+      ],
+      "categories": [
+        "motion_3d",
+        "creative_coding",
+        "culture_inspiration"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "_nvbj7OOVII",
+      "title": "Adobe가 Animate 폐지를 번복 + Blender 2026 로드맵 | 모션 먼데이스",
+      "channel": "School of Motion",
+      "summary": "Adobe가 Animate 폐지를 번복하고, Blender 2026 로드맵 공개, Cinema 4D 씬 노드 강화 등 모션 업계 주요 뉴스 정리",
+      "keywords": [
+        "Adobe Animate",
+        "Blender roadmap",
+        "Cinema 4D",
+        "scene nodes",
+        "software lifecycle",
+        "community feedback"
+      ],
+      "categories": [
+        "motion_3d",
+        "tools_workflow",
+        "industry_opinion"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "_PJLefMZwko",
+      "title": "전체 강좌: 더 높은 가격을 위한 작업 프레젠테이션",
+      "channel": "Malewicz",
+      "summary": "디자인 작업을 매력적으로 프레젠테이션하여 클라이언트의 관심을 사로잡고 더 높은 가격을 받는 방법에 대한 무료 전체 강좌",
+      "keywords": [
+        "portfolio presentation",
+        "design pricing",
+        "case study",
+        "storytelling",
+        "wireframe",
+        "mockup",
+        "first impression",
+        "attention span"
+      ],
+      "categories": [
+        "career_business",
+        "ui_visual",
+        "tutorial_technique"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "_ttQnflMDJc",
+      "title": "포토샵에서 픽셀 아트 만드는 방법",
+      "channel": "eyedesyn",
+      "summary": "포토샵 픽셀 아트 필수 설정과 테크닉 가이드",
+      "keywords": [
+        "픽셀 아트",
+        "포토샵",
+        "펜슬 툴",
+        "브러시 설정",
+        "니어리스트 네이버",
+        "픽셀 그리드",
+        "지우개 블록 모드",
+        "색상 팔레트",
+        "스프라이트",
+        "레트로 그래픽"
+      ],
+      "categories": [
+        "tutorial_technique",
+        "ui_visual"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "AOyZmO0S56E",
+      "title": "5천만 명 이상이 사용하는 AI 툴킷! (Artlist)",
+      "channel": "Satori Graphics",
+      "summary": "Artlist AI toolkit은 이미지, 비디오, 보이스 오버 AI 도구를 통합하며, 자체 고품질 푸티지로 훈련된 모델로 사실적인 프로덕션 레디 결과물을 제공합니다.",
+      "keywords": [
+        "Artlist",
+        "AI toolkit",
+        "image generation",
+        "video generation",
+        "production-ready",
+        "cinematography AI"
+      ],
+      "categories": [
+        "ai_design",
+        "tools_workflow"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "arQKFa0l8g8",
+      "title": "VFX 아티스트가 반응하는 나쁜 & 좋은 CGI 214",
+      "channel": "Corridor Crew",
+      "summary": "1996년 Eraser의 실용 VFX와 A$AP Rocky 뮤직비디오의 4D 가우시안 스플랫 기술을 VFX 전문가들이 심층 분석",
+      "keywords": [
+        "VFX",
+        "Gaussian splat",
+        "practical effects",
+        "volumetric capture",
+        "compositing",
+        "miniature",
+        "A$AP Rocky",
+        "Eraser"
+      ],
+      "categories": [
+        "motion_3d",
+        "tutorial_technique",
+        "culture_inspiration"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "aS-3thTPxe4",
+      "title": "Photoshop 대규모 업데이트, Rive의 실시간 3D & AI 렌더 엔진 | 모션 먼데이스",
+      "channel": "School of Motion",
+      "summary": "Rive의 3D 렌더링 지원, Maxon의 AE 경험 보유 신임 CPO 임명, Photoshop 대규모 업데이트 등 모션 디자인 도구 생태계의 주요 변화",
+      "keywords": [
+        "Rive",
+        "3D rendering",
+        "Maxon",
+        "After Effects",
+        "Photoshop",
+        "AI render engine",
+        "real-time design",
+        "CPO"
+      ],
+      "categories": [
+        "motion_3d",
+        "tools_workflow",
+        "ai_design"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "Atg-pWTMMSE",
+      "title": "나만의 로고 디자인하기. 5부: 프레젠테이션",
+      "channel": "James Barnard",
+      "summary": "로고 디자인 클라이언트 발표 전략과 순서 공개",
+      "keywords": [
+        "로고 프레젠테이션",
+        "클라이언트 발표",
+        "목업",
+        "CC 라이브러리",
+        "브랜드 아이덴티티",
+        "비동기 피드백",
+        "Adobe Illustrator",
+        "로고 디자인 프로세스",
+        "가변 서체"
+      ],
+      "categories": [
+        "branding",
+        "career_business",
+        "tutorial_technique"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "AzjbRybUX3M",
+      "title": "아무도 가르쳐주지 않는 그래픽 디자인의 보이지 않는 규칙들!",
+      "channel": "Satori Graphics",
+      "summary": "시각적 무게 배분, 타이포그래피 심리학, 제어된 불균형, 레이어링을 통한 계층 구조 등 그래픽 디자인의 숨겨진 규칙들을 심층 분석합니다.",
+      "keywords": [
+        "visual weight",
+        "typography psychology",
+        "kerning",
+        "design balance",
+        "layered hierarchy",
+        "composition"
+      ],
+      "categories": [
+        "tutorial_technique",
+        "typography",
+        "ui_visual"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "bEwJ9ULSCPE",
+      "title": "YouTube 채널 리뷰 및 소규모 채널을 위한 조언",
+      "channel": "Roberto Blake",
+      "summary": "2026년 YouTube 성장 전략으로 '가치 우선' 크리에이터 개념과 채널 명확성의 중요성을 라이브 채널 리뷰를 통해 설명",
+      "keywords": [
+        "YouTube growth",
+        "value first creator",
+        "channel clarity",
+        "thumbnail design",
+        "content strategy",
+        "unified signal of value",
+        "small channel",
+        "branding"
+      ],
+      "categories": [
+        "career_business",
+        "industry_opinion"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "CbAlpKnFNK4",
+      "title": "Rive가 3D로?! | 모션 먼데이스",
+      "channel": "School of Motion",
+      "summary": "Frederick Barry가 Rive 스크립팅과 Blender를 결합하여 Rive 내에서 실행되는 완전한 실시간 3D 렌더 엔진을 구현하고 GitHub에 공개했습니다.",
+      "keywords": [
+        "Rive",
+        "3D rendering",
+        "Blender",
+        "scripting engine",
+        "real-time 3D",
+        "interactive design"
+      ],
+      "categories": [
+        "creative_coding",
+        "motion_3d",
+        "tools_workflow"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "d0iVmAJIoZ4",
+      "title": "UE Blueprints 201: Ep.21: 카메라 내비게이션으로 움직임 트리거하기",
+      "channel": "Entagma",
+      "summary": "Unreal Engine 블루프린트에서 카메라 내비게이션을 파라메트릭 구성 요소의 움직임 트리거로 연결하는 크리에이티브 코딩 튜토리얼",
+      "keywords": [
+        "Unreal Engine",
+        "Blueprints",
+        "parametric design",
+        "camera navigation",
+        "creative coding",
+        "procedural",
+        "real-time interaction"
+      ],
+      "categories": [
+        "creative_coding",
+        "tutorial_technique",
+        "motion_3d"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "DK9DGsc3eaY",
+      "title": "이것을 배우면, 고객은 더 이상 경쟁자를 선택하지 않습니다",
+      "channel": "The Futur",
+      "summary": "경쟁자 약점 공략과 의심 심기로 피칭에서 이기는 전략",
+      "keywords": [
+        "피칭 전략",
+        "경쟁자 분석",
+        "가격 책정",
+        "협상 전략",
+        "Nike",
+        "마이클 조던",
+        "의사결정권자",
+        "로열티 계약",
+        "브랜드 전략",
+        "약자의 전략"
+      ],
+      "categories": [
+        "career_business",
+        "branding",
+        "industry_opinion"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "e7L-ka-MsEE",
+      "title": "애니메이터 리액트: K-pop Demon Hunters - 감독들 출연!",
+      "channel": "Corridor Crew",
+      "summary": "K-pop Demon Hunters 감독들이 7년간의 제작 비하인드와 3D 애니메이션의 기술적 도전을 상세히 공유합니다.",
+      "keywords": [
+        "3D animation",
+        "camera cheats",
+        "anime style CG",
+        "K-pop Demon Hunters",
+        "character rigging",
+        "frame rate",
+        "compositing",
+        "production pipeline"
+      ],
+      "categories": [
+        "motion_3d",
+        "tutorial_technique",
+        "culture_inspiration"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "EUXRWTRE5vo",
+      "title": "주문형 CGI 물 굴절 효과?",
+      "channel": "Corridor Crew",
+      "summary": "프레임별 깊이 정보를 활용한 픽셀 단위 굴절률 제어로 CGI 물 굴절 효과를 장면의 컴포지션에 맞게 정밀하게 조절하는 기법을 소개합니다.",
+      "keywords": [
+        "CGI water refraction",
+        "per-pixel refraction",
+        "VFX compositing",
+        "depth-based effects",
+        "practical vs CGI"
+      ],
+      "categories": [
+        "motion_3d",
+        "tutorial_technique"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "eVnQFWGDEdY",
+      "title": "치트키처럼 느껴지는 7가지 그래픽 디자인 팁!",
+      "channel": "Satori Graphics",
+      "summary": "색상 비율 분석, 슈퍼 패밀리 서체, 형태 반복, 듀얼 뷰 작업 등 즉시 적용 가능한 7가지 디자인 실전 팁을 소개합니다.",
+      "keywords": [
+        "color ratio",
+        "super family typeface",
+        "design consistency",
+        "dual view workflow",
+        "brand identity",
+        "visual hierarchy",
+        "design tips"
+      ],
+      "categories": [
+        "tutorial_technique",
+        "branding",
+        "tools_workflow"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "EXhwSwVf36U",
+      "title": "26세에 7자릿수 웹 디자인 에이전시를 만든 방법",
+      "channel": "Ran Segall",
+      "summary": "Uros가 14세 Fiverr 로고 디자인부터 시작하여 26세에 연매출 350만 달러 규모의 웹 디자인 에이전시 Flow Ninja를 구축한 성장 과정을 담은 인터뷰입니다.",
+      "keywords": [
+        "web design agency",
+        "Flow Ninja",
+        "freelance to agency",
+        "scaling business",
+        "Upwork",
+        "design entrepreneurship"
+      ],
+      "categories": [
+        "career_business",
+        "web_design"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "F0-4vJKZCsg",
+      "title": "AI가 방향키로 샌프란시스코에서 실제 자동차를 운전하는 것을 봤습니다",
+      "channel": "Matt Wolfe",
+      "summary": "AI 컴퓨터 사용 모델, 확산 LLM, 로봇 제어 최신 동향",
+      "keywords": [
+        "컴퓨터 사용 모델",
+        "FDM-1",
+        "Mercury 2",
+        "확산 언어 모델",
+        "AI 에이전트",
+        "Nvidia Sonic",
+        "로봇 제어",
+        "비디오 인코더",
+        "자기회귀 모델",
+        "Standard Intelligence"
+      ],
+      "categories": [
+        "ai_design",
+        "industry_opinion"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "fqVm6mr5b-w",
+      "title": "재즈가 '일곱 왕국의 기사'에서 무엇을 하고 있는가?",
+      "channel": "Nerdwriter1",
+      "summary": "판타지 드라마 속 시대착오적 음악의 서사적 의미 분석",
+      "keywords": [
+        "메탈렙시스",
+        "파라텍스트",
+        "서사학",
+        "시대착오적 음악",
+        "이중 의식",
+        "에픽 판타지",
+        "이차적 믿음",
+        "A Knight of the Seven Kingdoms",
+        "George R.R. Martin",
+        "서사 장치"
+      ],
+      "categories": [
+        "culture_inspiration",
+        "media_art"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "GFYZxmodWWo",
+      "title": "Vecna는 프랙티컬인가 CGI인가?",
+      "channel": "Corridor Crew",
+      "summary": "Vecna 캐릭터는 대중의 인식과 달리 얼굴만 프랙티컬 메이크업이고, 몸체의 복잡한 형태와 네거티브 스페이스는 CGI로 구현되었습니다.",
+      "keywords": [
+        "Vecna",
+        "practical effects",
+        "CGI",
+        "VFX misconception",
+        "prosthetic makeup",
+        "Stranger Things"
+      ],
+      "categories": [
+        "motion_3d",
+        "industry_opinion",
+        "culture_inspiration"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "GhuNkGEqcow",
+      "title": "인터랙티브 PDF를 쉽게 만드는 방법! (Adobe 없이)",
+      "channel": "Satori Graphics",
+      "summary": "정적 PDF를 인터랙티브 플립북으로 전환하는 도구 소개",
+      "keywords": [
+        "인터랙티브 PDF",
+        "플립북",
+        "포트폴리오",
+        "프레젠테이션",
+        "디자인 도구",
+        "애널리틱스",
+        "클라이언트 경험",
+        "Pablau"
+      ],
+      "categories": [
+        "tools_workflow",
+        "career_business"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "H6pRlKYlPcM",
+      "title": "Photoshop 대규모 업데이트, Rive의 실시간 3D, AI 렌더 엔진?! | 모션 먼데이스",
+      "channel": "School of Motion",
+      "summary": "모션 업계 주간 뉴스: Rive 3D 렌더링, Maxon 새 CPO, 모션 디자인 패러다임 변화, Photoshop 업데이트, AI 렌더 엔진, Netflix의 Blender 후원 등을 종합 정리합니다.",
+      "keywords": [
+        "Rive 3D",
+        "Photoshop update",
+        "Maxon CPO",
+        "motion design paradigm",
+        "AI render engine",
+        "Weevi",
+        "Blender",
+        "Netflix"
+      ],
+      "categories": [
+        "tools_workflow",
+        "motion_3d",
+        "ai_design",
+        "industry_opinion"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "H_11ou8EUng",
+      "title": "Adobe, Animate 종료 번복 + Blender 2026 로드맵 | 모션 먼데이즈",
+      "channel": "School of Motion",
+      "summary": "Blender 2026 로드맵, Adobe Animate 종료 번복, AI 2D-3D 도구 비교 등 모션 업계 주간 종합 뉴스",
+      "keywords": [
+        "Blender 2026 roadmap",
+        "Adobe Animate",
+        "Cinema 4D scene nodes",
+        "AI 2D to 3D",
+        "Runway Gen 4.5",
+        "Figma Vector",
+        "PureRef",
+        "motion design industry"
+      ],
+      "categories": [
+        "motion_3d",
+        "tools_workflow",
+        "industry_opinion"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "I6O4BKJaOwI",
+      "title": "라이팅, 텍스처, 애니메이션을 함께 해봅시다! | 드림 시퀀스 3D 커뮤니티 챌린지",
+      "channel": "Pwnisher",
+      "summary": "Pwnisher의 드림 시퀀스 3D 챌린지 라이브 스트림에서 라이팅, 텍스처링, 애니메이션 작업을 실시간으로 시연",
+      "keywords": [
+        "3D community challenge",
+        "Blender",
+        "lighting",
+        "texturing",
+        "animation",
+        "live stream",
+        "Pwnisher"
+      ],
+      "categories": [
+        "motion_3d",
+        "tutorial_technique",
+        "culture_inspiration"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "IhAxkXREps0",
+      "title": "Corridor Crew의 새 책 출간!",
+      "channel": "Corridor Crew",
+      "summary": "Corridor Crew가 상상력 기반 심리 게임 책과 확장 팩의 Amazon 출시를 홍보하는 크리에이티브 영상 공개",
+      "keywords": [
+        "Corridor Crew",
+        "book launch",
+        "imagination games",
+        "creative content",
+        "Sam Gorski"
+      ],
+      "categories": [
+        "culture_inspiration",
+        "creative_coding"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "Io-PXN_PfE4",
+      "title": "Daily Mail 댓글 읽기",
+      "channel": "James Barnard",
+      "summary": "HBO 로고 실수 바이럴 이후 Daily Mail 댓글을 읽으며 콘텐츠 마케팅의 사업적 효과를 유머러스하게 설명",
+      "keywords": [
+        "HBO logo",
+        "viral content",
+        "content marketing",
+        "Daily Mail",
+        "logo design",
+        "Gerard Huerta"
+      ],
+      "categories": [
+        "branding",
+        "career_business",
+        "culture_inspiration"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "IXexfab1BfU",
+      "title": "1인 기업의 문제점",
+      "channel": "Ran Segall",
+      "summary": "1인 기업의 핵심 리스크는 책임 집중이며, 지속가능성을 위해 책임 위임이 필수적이라는 조언",
+      "keywords": [
+        "one-person business",
+        "delegation",
+        "freelance sustainability",
+        "business growth",
+        "burnout"
+      ],
+      "categories": [
+        "career_business"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "JebUU7FnWBI",
+      "title": "Seedance 2.0은 옛날 Sora 같지만 더 좋다. 격투 장면이 드디어 훌륭해졌다!",
+      "channel": "Matt Wolfe",
+      "summary": "ByteDance의 Seedance 2.0이 애니메이션 격투 장면과 오디오 생성에서 Sora 2를 능가하는 성능을 보여주며 AI 비디오 생성의 새 기준 제시",
+      "keywords": [
+        "Seedance 2.0",
+        "ByteDance",
+        "AI video generation",
+        "Sora 2",
+        "animation",
+        "fight scenes",
+        "text to video"
+      ],
+      "categories": [
+        "ai_design",
+        "motion_3d",
+        "tools_workflow"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "jgDf56zs5wE",
+      "title": "나만의 로고 디자인하기. 파트 4: 스케치에서 벡터로",
+      "channel": "James Barnard",
+      "summary": "로고 디자이너가 자신의 비즈니스 로고를 브랜드 명사 기반 스케치에서 Illustrator 벡터까지 제작하는 실전 과정을 공개합니다.",
+      "keywords": [
+        "logo design",
+        "sketch to vector",
+        "Illustrator",
+        "brand identity",
+        "brand nouns",
+        "visual identity",
+        "logo process"
+      ],
+      "categories": [
+        "branding",
+        "tutorial_technique",
+        "tools_workflow"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "Jl459AgZ9cc",
+      "title": "내가 첫 고객을 어떻게 얻었는가",
+      "channel": "Ran Segall",
+      "summary": "Upwork에서 맞춤 비디오로 첫 고객을 확보한 전략",
+      "keywords": [
+        "첫 고객 확보",
+        "Upwork",
+        "프리랜서",
+        "맞춤 비디오",
+        "개인화 영업",
+        "초보 디자이너",
+        "클라이언트 획득",
+        "영업 전략"
+      ],
+      "categories": [
+        "career_business"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "JvygBrS1guI",
+      "title": "함께 콘서트 비주얼을 만들어봅시다 | 드림 시퀀스 3D 커뮤니티 챌린지",
+      "channel": "Pwnisher",
+      "summary": "Pwnisher의 12번째 3D 커뮤니티 챌린지 첫 라이브 스트림: 120 BPM 콘서트 비주얼 제작과 타이틀 시퀀스 작업",
+      "keywords": [
+        "3D community challenge",
+        "concert visuals",
+        "Blender",
+        "title sequence",
+        "Pwnisher",
+        "BPM sync",
+        "Puget Systems"
+      ],
+      "categories": [
+        "motion_3d",
+        "tutorial_technique",
+        "culture_inspiration"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "KsxqSwbs7z8",
+      "title": "Google의 Lyria 3 AI 음악 출시, 하지만 Sunauto v3가 주인공을 빼앗다!",
+      "channel": "Matt Wolfe",
+      "summary": "Google Lyria 3, Suno V5, Tsunado V3의 AI 음악 생성 비교: 안전 vs 자유도 vs 품질의 삼각 구도",
+      "keywords": [
+        "AI music generation",
+        "Google Lyria 3",
+        "Suno AI",
+        "Tsunado AI",
+        "voice cloning",
+        "copyright",
+        "Gemini 3.1 Pro"
+      ],
+      "categories": [
+        "ai_design",
+        "tools_workflow",
+        "industry_opinion"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "leui2Sp4b6g",
+      "title": "UE Blueprints201: 에피소드 22: 로직과 머티리얼 생성",
+      "channel": "Entagma",
+      "summary": "Unreal Engine Blueprints로 프로시저럴 로직 완성과 몬드리안 스타일 머티리얼 자동 할당을 다루는 튜토리얼입니다.",
+      "keywords": [
+        "Unreal Engine",
+        "Blueprints",
+        "procedural materials",
+        "Mondrian",
+        "game logic",
+        "procedural generation"
+      ],
+      "categories": [
+        "creative_coding",
+        "tutorial_technique",
+        "tools_workflow"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "LTsIKT9dslU",
+      "title": "이제 누구나 디자인할 수 있다고? 아니, 못 한다!",
+      "channel": "Malewicz",
+      "summary": "AI가 시스템적 조립은 할 수 있지만 정서적 연결과 독창적 상호작용 디자인은 대체 불가능하며, UI/UX 디자인은 오히려 성장 중",
+      "keywords": [
+        "UI design",
+        "AI limitations",
+        "UX design",
+        "emotional design",
+        "interaction design",
+        "design career",
+        "Remote Labor Index"
+      ],
+      "categories": [
+        "ux_research",
+        "ui_visual",
+        "ai_design",
+        "career_business"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "M84KMC8JeN0",
+      "title": "After Effects의 새로운 기능, 프레임 레이트 소식 & 신규 강좌! | 모션 먼데이즈",
+      "channel": "School of Motion",
+      "summary": "모션 디자인 주간 뉴스: AE 신기능, AI, 프레임 레이트",
+      "keywords": [
+        "After Effects",
+        "프레임 레이트",
+        "모션그래픽",
+        "AI",
+        "Tron Aries",
+        "모션 디자인",
+        "Adobe",
+        "베타 도구",
+        "Motion Mondays"
+      ],
+      "categories": [
+        "motion_3d",
+        "ai_design",
+        "tools_workflow"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "mJqQvNBhwdE",
+      "title": "Gore Verbinski 감독에게 묻는 잔혹한 죽음 장면의 비밀",
+      "channel": "Corridor Crew",
+      "summary": "Gore Verbinski 감독이 신작 영화의 코믹한 죽음 장면이 CG가 아닌 자석을 활용한 실제 물리적 트릭이었음을 밝힙니다.",
+      "keywords": [
+        "practical effects",
+        "Gore Verbinski",
+        "VFX",
+        "physical props",
+        "comedic timing",
+        "filmmaking"
+      ],
+      "categories": [
+        "motion_3d",
+        "culture_inspiration"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "NRPKLbVss0Y",
+      "title": "프리랜서가 결국 번아웃되는 이유 (그리고 해결 방법)",
+      "channel": "Ran Segall",
+      "summary": "프리랜서 번아웃 해결책: 운영 담당자부터 고용하라",
+      "keywords": [
+        "프리랜서 번아웃",
+        "팀 빌딩",
+        "운영 업무",
+        "레버리지",
+        "1인 사업",
+        "에이전시 운영",
+        "가상 비서",
+        "7인 규칙",
+        "리더십",
+        "사업 확장"
+      ],
+      "categories": [
+        "career_business"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "nTthfof409U",
+      "title": "클라이언트 찾기에 고생하지 마세요, 돈 되는 니치가 여기 있습니다!",
+      "channel": "The Futur",
+      "summary": "유튜브 썸네일 니치로 프리랜서 수입 목표 달성 전략",
+      "keywords": [
+        "프리랜서",
+        "니치 마켓",
+        "유튜브 썸네일",
+        "가격 책정",
+        "월간 반복 수익",
+        "클라이언트 확보",
+        "개인 브랜딩",
+        "포트폴리오",
+        "콘텐츠 마케팅",
+        "재정 목표"
+      ],
+      "categories": [
+        "career_business",
+        "branding",
+        "tutorial_technique"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "OK0zPQBvcr8",
+      "title": "VFX 아티스트가 나쁜 & 훌륭한 CGI에 반응 212편 Ft. Joe Letteri",
+      "channel": "Corridor Crew",
+      "summary": "아바타 3의 1페타바이트 강물 시뮬레이션과 디지털 더블 기반 실사-CG 통합 기법을 Joe Letteri와 함께 분석",
+      "keywords": [
+        "Avatar 3",
+        "VFX",
+        "Weta Digital",
+        "Joe Letteri",
+        "simulation",
+        "digital double",
+        "pipeline",
+        "CGI"
+      ],
+      "categories": [
+        "motion_3d",
+        "tutorial_technique",
+        "tools_workflow"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "OlGjmrB__cM",
+      "title": "생각보다 쉽습니다",
+      "channel": "Ben Marriott",
+      "summary": "루핑 보일, 페인트 시퀀스, 루마 매트 등 세 가지 핵심 페인트 애니메이션 기법과 실제 물감을 활용한 로고 애니메이션 제작 과정을 소개합니다.",
+      "keywords": [
+        "paint animation",
+        "looping boil",
+        "After Effects",
+        "luma matte",
+        "texture",
+        "analog technique",
+        "motion design"
+      ],
+      "categories": [
+        "motion_3d",
+        "tutorial_technique",
+        "creative_coding"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "OMeYM-ubfkw",
+      "title": "이 웹 디자인 포트폴리오가 당신에게 일을 가져다 줄 것입니다",
+      "channel": "Ran Segall",
+      "summary": "목표에 맞는 전략적 웹 디자인 포트폴리오 구축법",
+      "keywords": [
+        "포트폴리오",
+        "웹 디자인",
+        "케이스 스터디",
+        "프리랜서",
+        "정규직",
+        "커스텀 도메인",
+        "아트 디렉팅",
+        "히어로 섹션",
+        "사회적 증거",
+        "AI 시대"
+      ],
+      "categories": [
+        "career_business",
+        "web_design"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "pc2vQtqH1Qc",
+      "title": "VFX 아티스트들이 AI 인플루언서와 사기를 폭로합니다",
+      "channel": "Corridor Crew",
+      "summary": "VFX 전문가들이 Amazon AI 가짜 도서, AI 인플루언서, AI 영상 구별법 등 AI 사기의 핵심 패턴과 방어법을 총정리합니다.",
+      "keywords": [
+        "AI scams",
+        "AI detection",
+        "fake content",
+        "AI video identification",
+        "Synth ID",
+        "AI-generated books",
+        "content authenticity",
+        "VFX analysis"
+      ],
+      "categories": [
+        "ai_design",
+        "industry_opinion",
+        "culture_inspiration"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "PUsvdyJHMCk",
+      "title": "Flux Academy와 나의 미래",
+      "channel": "Ran Segall",
+      "summary": "AI와 도구 변화로 혼란해진 웹 디자인 시장에서 Flux Academy의 정체기와 새로운 파트너십을 통한 재도약 계획을 공유합니다.",
+      "keywords": [
+        "Flux Academy",
+        "web design market",
+        "AI disruption",
+        "Webflow",
+        "Framer",
+        "burnout",
+        "business partnership",
+        "freelance"
+      ],
+      "categories": [
+        "career_business",
+        "industry_opinion",
+        "web_design"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "QaJyYl0SvyY",
+      "title": "전환율을 높이기 위해 에이전시 웹사이트를 리디자인했습니다 - 완전 가이드",
+      "channel": "Malewicz",
+      "summary": "A/B 테스트 기반 에이전시 웹사이트 전환율 3배 향상 전략",
+      "keywords": [
+        "에이전시 웹사이트",
+        "전환율 최적화",
+        "A/B 테스팅",
+        "CTA",
+        "가격 전략",
+        "고객 후기",
+        "F 패턴",
+        "사회적 증거",
+        "디자인 스프린트",
+        "메시지 프레이밍"
+      ],
+      "categories": [
+        "web_design",
+        "career_business",
+        "ux_research"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "QK_kAFOz6d8",
+      "title": "피부 속까지 파고드는 WETA FX",
+      "channel": "Corridor Crew",
+      "summary": "WETA FX의 APFS 안면 모션 시스템이 사진 측량과 신경망을 결합하여 해부학적으로 정확한 디지털 얼굴을 재구성하지만, 아티스트의 개입이 여전히 필수적임을 보여줍니다.",
+      "keywords": [
+        "WETA FX",
+        "APFS",
+        "facial motion",
+        "photogrammetry",
+        "neural network",
+        "VFX",
+        "digital human"
+      ],
+      "categories": [
+        "motion_3d",
+        "ai_design",
+        "tools_workflow"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "Qw_zZVIvYIM",
+      "title": "쉬운 Houdini: Vellum 실 연결하기",
+      "channel": "Entagma",
+      "summary": "Houdini의 Vellum solver에서 글루 구속 조건 하나만으로 수련 잎 밑부분 같은 유기적 분기 구조를 간단하게 생성하는 튜토리얼입니다.",
+      "keywords": [
+        "Houdini",
+        "Vellum",
+        "branching algorithm",
+        "procedural",
+        "glue constraint",
+        "organic structure",
+        "simulation"
+      ],
+      "categories": [
+        "motion_3d",
+        "tutorial_technique",
+        "creative_coding"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "Qx0rP0fA3co",
+      "title": "나만의 로고 디자인하기. 3부: 디스커버리 콜",
+      "channel": "James Barnard",
+      "summary": "로고 디자인의 디스커버리 콜에서 성공 진술서와 브랜드 명사 목록을 확정하여 디자인 방향을 사전에 합의하는 프로세스를 소개합니다.",
+      "keywords": [
+        "logo design",
+        "discovery call",
+        "brand nouns",
+        "success statement",
+        "client process",
+        "GPT",
+        "design workflow"
+      ],
+      "categories": [
+        "branding",
+        "tools_workflow",
+        "career_business"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "qXW5nSvbogI",
+      "title": "Photoshop 대규모 업데이트: 그레인, 선명도, 개선된 Firefly! | 모션 먼데이스",
+      "channel": "School of Motion",
+      "summary": "Photoshop에 그레인/선명도 조정 레이어, 고해상도 Firefly 생성형 채우기, 참조 이미지 합성 등 대규모 업데이트가 추가되었습니다.",
+      "keywords": [
+        "Photoshop",
+        "Adobe Firefly",
+        "generative fill",
+        "grain adjustment",
+        "clarity",
+        "reference image",
+        "remove tool"
+      ],
+      "categories": [
+        "tools_workflow",
+        "ai_design"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "rdL5GNjYuME",
+      "title": "AI가 24시간 만에 완전한 Game Boy를 만들었다",
+      "channel": "Matt Wolfe",
+      "summary": "GLM5의 자율 Game Boy 구축, Gemini 3의 원샷 코딩, GPT 5.2의 물리학 발견 등 2026년 AI 기술 급진적 발전을 총정리합니다.",
+      "keywords": [
+        "GLM5",
+        "Gemini 3 Deep Think",
+        "AI coding",
+        "Seed Dance 2.0",
+        "GPT 5.2",
+        "Codeex Spark",
+        "AI agents",
+        "theoretical physics"
+      ],
+      "categories": [
+        "ai_design",
+        "creative_coding",
+        "industry_opinion",
+        "tools_workflow"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "rMDjre2HWjY",
+      "title": "모션 디자이너를 위한 새 Substance Painter 강좌 출시!",
+      "channel": "School of Motion",
+      "summary": "모션 디자이너용 Substance Painter 강좌 출시 안내",
+      "keywords": [
+        "Substance Painter",
+        "모션 디자인",
+        "텍스처링",
+        "3D",
+        "프로시저럴 셰이더",
+        "머티리얼",
+        "School of Motion",
+        "강좌"
+      ],
+      "categories": [
+        "motion_3d",
+        "tutorial_technique"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "rPkeDJbCLzs",
+      "title": "Webflow AI로 웹사이트 만들기 (초보자 속성 강좌)",
+      "channel": "Ran Segall",
+      "summary": "Webflow AI 사이트 빌더로 프롬프트부터 CMS 블로그 구축, 역할 기반 권한 설정까지 전문 웹사이트를 30분 만에 완성하는 실전 강좌입니다.",
+      "keywords": [
+        "Webflow AI",
+        "website builder",
+        "CMS",
+        "variables",
+        "components",
+        "responsive design",
+        "no-code",
+        "client workflow"
+      ],
+      "categories": [
+        "web_design",
+        "ai_design",
+        "tutorial_technique",
+        "tools_workflow"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "stlL22YNSbo",
+      "title": "제품 디자인은 하락세입니다",
+      "channel": "Ran Segall",
+      "summary": "제품 디자인 하락세, 웹 디자인과 코딩 역량이 대안",
+      "keywords": [
+        "제품 디자인",
+        "웹 디자인",
+        "제품 엔지니어",
+        "바이브 코딩",
+        "AI",
+        "디자인 커리어",
+        "시장 동향",
+        "직업 전망"
+      ],
+      "categories": [
+        "career_business",
+        "industry_opinion"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "tzzH2i3LYkA",
+      "title": "새로운 Ran Segall을 찾았습니다",
+      "channel": "Ran Segall",
+      "summary": "Ran Segall이 65명 규모 에이전시 CEO Uros Mik과 협업하여 고급 웹 디자인 에이전시 운영 노하우를 공유하는 콘텐츠를 예고합니다.",
+      "keywords": [
+        "web design agency",
+        "Flow Ninja",
+        "high-end clients",
+        "agency building",
+        "Webflow",
+        "freelance to agency",
+        "design business"
+      ],
+      "categories": [
+        "career_business",
+        "web_design"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "u-JtFKXL_jY",
+      "title": "엘리트 디자인 사고를 위한 4가지 그래픽 디자인 팁!",
+      "channel": "Satori Graphics",
+      "summary": "전략적 사고를 갖춘 엘리트 디자이너를 위한 4가지 핵심 기술",
+      "keywords": [
+        "시각적 포지셔닝",
+        "포화도 감사",
+        "인지 속도",
+        "내러티브 아키텍처",
+        "심리학",
+        "권위 편향",
+        "2초 경제",
+        "그래픽 디자인",
+        "크리에이티브 디렉팅",
+        "디자인 사고"
+      ],
+      "categories": [
+        "ui_visual",
+        "branding",
+        "tutorial_technique"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "ujZyU07NAPw",
+      "title": "Substance Painter에서 객체 격리하기! | 빠른 팁",
+      "channel": "School of Motion",
+      "summary": "Substance Painter에서 텍스처 세트 솔로와 지오메트리 마스크를 활용하여 복잡한 씬의 개별 객체를 효율적으로 격리하는 방법을 소개합니다.",
+      "keywords": [
+        "Substance Painter",
+        "object isolation",
+        "geometry mask",
+        "texture set",
+        "texturing workflow"
+      ],
+      "categories": [
+        "tutorial_technique",
+        "tools_workflow"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "uPx76LZEaqM",
+      "title": "Vimeo의 정신적 후계자 - Frame Rate - 본격적으로 나섰다! | 모션 먼데이즈",
+      "channel": "School of Motion",
+      "summary": "Vimeo 대안 Frame Rate, 업계 거물 합류로 본격화",
+      "keywords": [
+        "Frame Rate",
+        "Vimeo",
+        "영상 호스팅",
+        "모션그래픽 플랫폼",
+        "Justin Con",
+        "Motionographer",
+        "Selects Award",
+        "크리에이티브 커뮤니티",
+        "Staff Picks",
+        "브랜딩 전략"
+      ],
+      "categories": [
+        "motion_3d",
+        "tools_workflow",
+        "industry_opinion"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "UsANBd_isVk",
+      "title": "쉬운 애니메이션 브러시 스트로크",
+      "channel": "Ben Marriott",
+      "summary": "After Effects에서 애니메이션 브러시 팩을 매트로 활용하여 빠르게 음영과 하이라이트를 추가하는 간단한 팁을 소개합니다.",
+      "keywords": [
+        "animated brushes",
+        "After Effects",
+        "shading",
+        "matte technique",
+        "motion design",
+        "texture"
+      ],
+      "categories": [
+        "motion_3d",
+        "tutorial_technique"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "uvzPhNWMmSI",
+      "title": "YouTube 쇼츠와 TikTok을 위한 최고의 도구",
+      "channel": "Roberto Blake",
+      "summary": "Opus Clip Pro를 활용해 긴 형식 영상에서 숏폼 콘텐츠를 자동 추출하고 리프레이밍하는 워크플로우를 소개합니다.",
+      "keywords": [
+        "Opus Clip Pro",
+        "YouTube Shorts",
+        "TikTok",
+        "auto reframing",
+        "content repurposing",
+        "AI editing"
+      ],
+      "categories": [
+        "tools_workflow",
+        "ai_design"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "Uzqkp25736c",
+      "title": "모든 것을 지배하는 하나의 시뮬레이션 도구",
+      "channel": "Corridor Crew",
+      "summary": "WETA FX의 Loki는 물, 불, 근육 등 모든 물리 시뮬레이션을 하나의 시스템에서 처리하며, 시뮬레이션 간 힘의 전달로 크로스 상호작용을 구현합니다.",
+      "keywords": [
+        "WETA FX",
+        "Loki",
+        "unified simulation",
+        "force transfer",
+        "VFX",
+        "physics simulation",
+        "Avatar"
+      ],
+      "categories": [
+        "motion_3d",
+        "tools_workflow"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "uZsP1JpWBA0",
+      "title": "Blender 실시간 노이즈 제거 + Jony Ive의 터치스크린 포기 | 모션 먼데이스",
+      "channel": "School of Motion",
+      "summary": "Blender 실시간 노이즈 제거 도입, Jony Ive의 Ferrari 물리 버튼 채택, 스포츠 영상의 4D 기술 활용 등 모션 업계 주간 소식을 다룹니다.",
+      "keywords": [
+        "Blender",
+        "real-time denoising",
+        "Jony Ive",
+        "Ferrari",
+        "physical buttons",
+        "4D sports video",
+        "motion design"
+      ],
+      "categories": [
+        "motion_3d",
+        "tools_workflow",
+        "ui_visual"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "V-199JdtIRM",
+      "title": "말 안 듣는 AI에 지쳐서 직접 AI 브레인을 만들었습니다",
+      "channel": "Matt Wolfe",
+      "summary": "폴더와 마크다운 파일만으로 구성된 AI 에이전트 운영체제 'Project Meridian'을 구축하여, 메모리 지속성과 인지 슬라이더를 갖춘 맞춤형 AI 브레인을 만드는 방법을 공유합니다.",
+      "keywords": [
+        "AI agent",
+        "Project Meridian",
+        "markdown brain",
+        "OpenClaw",
+        "persistent memory",
+        "cognitive sliders",
+        "agentic AI",
+        "custom agent"
+      ],
+      "categories": [
+        "ai_design",
+        "tools_workflow",
+        "tutorial_technique"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "vTPP0-Fos1M",
+      "title": "VFX 아티스트들이 좋은 CGI와 나쁜 CGI에 반응하다 213",
+      "channel": "Corridor Crew",
+      "summary": "Gore Verbinsky 감독 특별 출연, AI 립싱크 더빙 분석, Stranger Things CG 평가 등 다양한 영화의 시각 효과를 전문적으로 분석합니다.",
+      "keywords": [
+        "VFX",
+        "Gore Verbinsky",
+        "Flawless AI",
+        "AI lip sync",
+        "Stranger Things",
+        "compositing",
+        "flat lighting",
+        "practical effects"
+      ],
+      "categories": [
+        "motion_3d",
+        "ai_design",
+        "industry_opinion"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "W_oCGCF-xZY",
+      "title": "Blender 실시간 디노이징 + Jony Ive, 터치스크린 포기 | 모션 먼데이",
+      "channel": "School of Motion",
+      "summary": "Blender DLSS 실시간 디노이징, Jony Ive의 Ferrari 촉각 인터페이스, AI 비디오 생성 모델 경쟁, 볼류메트릭 3D 스포츠 중계 등 모션 디자인 업계 주간 뉴스입니다.",
+      "keywords": [
+        "Blender DLSS",
+        "Jony Ive",
+        "Ferrari",
+        "Cling 3.0",
+        "Seed Dance 2.0",
+        "Gaussian splatting",
+        "volumetric 3D",
+        "AI video generation",
+        "Rive"
+      ],
+      "categories": [
+        "motion_3d",
+        "tools_workflow",
+        "ai_design",
+        "ui_visual",
+        "industry_opinion"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "wiwnjavLIuI",
+      "title": "기회는 스스로 만들어야 한다",
+      "channel": "Ran Segall",
+      "summary": "커리어 초반, 기회는 직접 만들어야 한다",
+      "keywords": [
+        "프리랜서",
+        "클라이언트 확보",
+        "네트워크 구축",
+        "커리어 초기",
+        "기회 창출",
+        "포트폴리오",
+        "인맥",
+        "적극적 영업"
+      ],
+      "categories": [
+        "career_business"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "WOEHhVdR4ag",
+      "title": "Illustrator 파일을 Substance Painter에 드래그 앤 드롭! | 빠른 팁",
+      "channel": "School of Motion",
+      "summary": "Substance Painter에 Illustrator 파일을 벡터로 드래그 앤 드롭하여 아트보드 전환, 레이어 접근, 자동 업데이트 등을 활용하는 빠른 팁입니다.",
+      "keywords": [
+        "Substance Painter",
+        "Illustrator",
+        "vector import",
+        "artboard",
+        "material authoring",
+        "3D texturing",
+        "workflow tip"
+      ],
+      "categories": [
+        "motion_3d",
+        "tools_workflow",
+        "tutorial_technique"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "x4YsTyxs49c",
+      "title": "스톱모션의 재발명",
+      "channel": "Corridor Crew",
+      "summary": "보이지 않는 잉크 트래킹 마커와 3D 블렌드 셰이프를 결합하여 스톱모션 인형의 얼굴 애니메이션을 혁신하는 하이브리드 기법을 분석합니다.",
+      "keywords": [
+        "stop-motion",
+        "invisible ink tracking",
+        "blend shapes",
+        "hybrid animation",
+        "facial animation",
+        "puppet animation"
+      ],
+      "categories": [
+        "motion_3d",
+        "tutorial_technique",
+        "creative_coding"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "x_DRFuG6DKY",
+      "title": "이것이 영화 역사상 가장 정교하게 연출된 애니메이션인가?",
+      "channel": "Corridor Crew",
+      "summary": "12프레임 레이트의 의도적 선택과 미세한 표정 디테일이 만드는 극적 효과를 통해 정교한 애니메이션 연출의 원리를 분석합니다.",
+      "keywords": [
+        "animation",
+        "12fps",
+        "frame rate",
+        "snappy animation",
+        "facial detail",
+        "dramatic animation",
+        "curated frames"
+      ],
+      "categories": [
+        "motion_3d",
+        "tutorial_technique"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "XjejvVq7Nxo",
+      "title": "After Effects 베타에 비례 스크러빙 기능 추가 - 이건 대단하다! | 모션 먼데이즈",
+      "channel": "School of Motion",
+      "summary": "AE 베타, 비례 스크러빙으로 레이어 분배 혁신",
+      "keywords": [
+        "After Effects",
+        "비례 스크러빙",
+        "타임라인",
+        "레이어 분배",
+        "베타 기능",
+        "모션그래픽",
+        "3D 프리미티브",
+        "작업 효율",
+        "Creative Cloud",
+        "보간"
+      ],
+      "categories": [
+        "motion_3d",
+        "tools_workflow",
+        "tutorial_technique"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "XpSVI60X6wM",
+      "title": "최종 작업 스트림 | 드림 시퀀스 3D 커뮤니티 챌린지",
+      "channel": "Pwnisher",
+      "summary": "드림 시퀀스 3D 챌린지 마감 전 기술 사양 안내와 Blender 실시간 작업, 곤충 챌린지 우승작 리뷰를 진행하는 라이브 스트림",
+      "keywords": [
+        "3D community challenge",
+        "Blender",
+        "animation workflow",
+        "DaVinci Resolve",
+        "tech specs",
+        "keyframe animation",
+        "3D rendering",
+        "creative community"
+      ],
+      "categories": [
+        "motion_3d",
+        "tutorial_technique",
+        "tools_workflow"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "XSiUWCTO0cE",
+      "title": "AI는 지루한 작업을 대체하지, 인간을 대체하지 않는다: 생산성 극대화 방법",
+      "channel": "Roberto Blake",
+      "summary": "AI는 지루한 작업을 대체할 뿐이며, 창의성과 개성은 여전히 인간의 영역이라는 생산성 관점의 주장",
+      "keywords": [
+        "AI productivity",
+        "creative workflow",
+        "human creativity",
+        "task automation",
+        "AI slop",
+        "content quality"
+      ],
+      "categories": [
+        "ai_design",
+        "career_business",
+        "industry_opinion"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "xuNv5kDNALc",
+      "title": "Blender 5.1이 3월에 출시됩니다! | 모션 먼데이스",
+      "channel": "School of Motion",
+      "summary": "Blender 5.1이 3월 출시 예정으로, Eevee next 개선, 온라인 에셋 라이브러리, 애니메이션 레이어, NPR 렌더링, Android 포트 등 다수의 주요 기능이 추가됩니다.",
+      "keywords": [
+        "Blender 5.1",
+        "Eevee next",
+        "open PBR",
+        "NPR rendering",
+        "animation layers",
+        "asset library",
+        "Android port"
+      ],
+      "categories": [
+        "motion_3d",
+        "tools_workflow"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "Y1M2-s6mJiY",
+      "title": "Blender에서 DLSS?! | 모션 먼데이스",
+      "channel": "School of Motion",
+      "summary": "Blender에서 비공식 DLSS 지원이 극적인 뷰포트 성능 향상을 보여주지만, 라이선싱과 기술적 한계가 공식 통합을 어렵게 만들고 있다",
+      "keywords": [
+        "DLSS",
+        "Blender",
+        "ray reconstruction",
+        "Cycles",
+        "denoiser",
+        "Open Image Denoise",
+        "Nvidia",
+        "viewport performance"
+      ],
+      "categories": [
+        "motion_3d",
+        "tools_workflow"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "Y2WtRMvDxQs",
+      "title": "타이틀 시퀀스를 만들어보자! | DREAM SEQUENCE 3D 커뮤니티 챌린지",
+      "channel": "Pwnisher",
+      "summary": "Dream Sequence 3D 챌린지 중간 리뷰로, 비트 싱크 아트의 카메라 워크와 키프레임 배치에 대한 실전 피드백을 제공한다",
+      "keywords": [
+        "3D challenge",
+        "beat sync",
+        "camera animation",
+        "Marvelous Designer",
+        "keyframe",
+        "DaVinci Resolve",
+        "community challenge",
+        "BPM"
+      ],
+      "categories": [
+        "motion_3d",
+        "creative_coding",
+        "tutorial_technique"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "yPVFkSNoJN8",
+      "title": "웹 디자인의 미래 (연매출 수백만 달러 에이전시 대표의 시각)",
+      "channel": "Ran Segall",
+      "summary": "AI 시대에 웹사이트는 LLM의 데이터 원천으로서 더 중요해지며, 브랜딩과 풀스택 역량이 웹 디자이너의 미래 경쟁력을 결정한다는 현직 에이전시 대표의 분석입니다.",
+      "keywords": [
+        "web design future",
+        "Webflow",
+        "AEO",
+        "LLM optimization",
+        "branding",
+        "full-stack designer",
+        "AI era",
+        "website personalization"
+      ],
+      "categories": [
+        "web_design",
+        "career_business",
+        "ai_design",
+        "branding"
+      ],
+      "date": "2026-03-02"
+    },
+    {
+      "id": "zYYg2KyuByI",
+      "title": "Clint Eastwood가 거의 죽을 뻔한 사건",
+      "channel": "Corridor Crew",
+      "summary": "실제 폭발 장면의 시각적 풍부함과 CG 폭발의 한계를 비교 분석하는 VFX 리액트 영상",
+      "keywords": [
+        "practical effects",
+        "VFX analysis",
+        "explosion",
+        "CG vs practical",
+        "visual effects",
+        "film production"
+      ],
+      "categories": [
+        "motion_3d",
+        "tutorial_technique",
+        "culture_inspiration"
+      ],
+      "date": "2026-03-02"
+    }
+  ]
+}

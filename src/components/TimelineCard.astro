@@ -1,0 +1,580 @@
+---
+interface Props {
+  videoId: string;
+  channel: string;
+  channelGroup: string;
+  titleKo: string;
+  summaryShortKo: string;
+  summaryKo: string;
+  categories: string[];
+  keywords: string[];
+  insights: any[];
+  youtubeUrl: string;
+  publishedAt: string;
+  date?: string;
+}
+
+const {
+  videoId,
+  channel,
+  channelGroup,
+  titleKo,
+  summaryShortKo,
+  summaryKo,
+  categories,
+  keywords,
+  insights,
+  youtubeUrl,
+  publishedAt,
+  date,
+} = Astro.props;
+
+const groupColors: Record<string, string> = {
+  vision_opinion: '#7c7cf7',
+  ai_3d_motion: '#f5a623',
+  media_art: '#f06292',
+  studio_business: '#4ecdc4',
+  branding_process: '#5c9eff',
+};
+
+const stanceLabels: Record<string, string> = {
+  positive: 'Positive',
+  negative: 'Negative',
+  neutral: 'Neutral',
+  mixed: 'Mixed',
+};
+
+const noveltyLabels: Record<string, string> = {
+  high: 'High',
+  medium: 'Med',
+  low: 'Low',
+};
+
+const accentColor = groupColors[channelGroup] || '#7c7cf7';
+const displayDate = date || publishedAt;
+---
+
+<article class="timeline-card" data-video-id={videoId} data-categories={JSON.stringify(categories)}>
+  <div class="card-accent" style={`background: ${accentColor}`}></div>
+
+  <div class="card-body">
+    <div class="card-meta">
+      <span class="card-channel" style={`color: ${accentColor}`}>{channel}</span>
+      <span class="meta-dot"></span>
+      <time class="card-date">{displayDate}</time>
+      <span class="meta-dot"></span>
+      <span class="insight-badge">{insights.length} insights</span>
+    </div>
+
+    <h3 class="card-title">{titleKo}</h3>
+
+    <p class="card-summary">{summaryShortKo}</p>
+
+    <div class="card-bottom">
+      <div class="card-tags">
+        {categories.slice(0, 3).map((cat: string) => (
+          <span class="tag">{cat}</span>
+        ))}
+      </div>
+
+      <div class="card-actions">
+        <button class="btn-expand" data-target={`modal-${videoId}`}>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+          읽기
+        </button>
+        <a href={youtubeUrl} target="_blank" rel="noopener" class="btn-youtube" title="YouTube에서 보기">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="card-modal" id={`modal-${videoId}`}>
+    <div class="modal-backdrop"></div>
+    <div class="modal-panel">
+      <div class="modal-top-bar">
+        <div class="modal-channel" style={`color: ${accentColor}`}>{channel}</div>
+        <button class="modal-close" data-close={`modal-${videoId}`}>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <div class="modal-scroll">
+        <div class="modal-header">
+          <time class="modal-date">{displayDate}</time>
+          <h2>{titleKo}</h2>
+          <div class="modal-links">
+            <a href={youtubeUrl} target="_blank" rel="noopener" class="yt-link">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
+              YouTube 원본
+            </a>
+          </div>
+        </div>
+
+        <hr class="divider" />
+
+        <section class="modal-section">
+          <h4>요약</h4>
+          <div class="modal-summary">
+            {summaryKo.split('\n').map((p: string) => p.trim() && <p>{p}</p>)}
+          </div>
+        </section>
+
+        <section class="modal-section">
+          <h4>인사이트 <span class="section-count">{insights.length}</span></h4>
+          <div class="insights-list">
+            {insights.map((ins: any, idx: number) => (
+              <div class="insight-item">
+                <div class="insight-num">{String(idx + 1).padStart(2, '0')}</div>
+                <div class="insight-content">
+                  <div class="insight-header">
+                    <span class="insight-topic">{ins.topic_ko}</span>
+                    <div class="insight-badges">
+                      <span class={`badge stance-${ins.stance}`}>{stanceLabels[ins.stance] || ins.stance}</span>
+                      <span class={`badge novelty-${ins.novelty_raw}`}>{noveltyLabels[ins.novelty_raw] || ins.novelty_raw}</span>
+                    </div>
+                  </div>
+                  <p class="insight-text">{ins.text_ko}</p>
+                  {ins.actionability?.actionable && ins.actionability.advice && (
+                    <div class="insight-advice">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                      {ins.actionability.advice}
+                    </div>
+                  )}
+                  {ins.keywords?.length > 0 && (
+                    <div class="insight-keywords">
+                      {ins.keywords.map((kw: string) => (
+                        <span class="tag small">{kw}</span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {keywords.length > 0 && (
+          <section class="modal-section">
+            <h4>키워드</h4>
+            <div class="keywords-list">
+              {keywords.map((kw: string) => (
+                <span class="tag">{kw}</span>
+              ))}
+            </div>
+          </section>
+        )}
+      </div>
+    </div>
+  </div>
+</article>
+
+<style>
+  /* ==================== Card ==================== */
+  .timeline-card {
+    position: relative;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: transform var(--duration) var(--ease),
+                box-shadow var(--duration) var(--ease),
+                border-color var(--duration) var(--ease);
+  }
+  .timeline-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-border);
+  }
+
+  .card-accent {
+    height: 3px;
+    width: 100%;
+  }
+
+  .card-body {
+    padding: 1.25rem 1.5rem 1.125rem;
+  }
+
+  .card-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.625rem;
+    font-size: var(--fs-xs);
+  }
+  .card-channel {
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .meta-dot {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: var(--color-text-tertiary);
+  }
+  .card-date {
+    color: var(--color-text-tertiary);
+  }
+  .insight-badge {
+    color: var(--color-text-tertiary);
+    font-weight: 500;
+  }
+
+  .card-title {
+    font-family: var(--font-serif);
+    font-size: var(--fs-h3);
+    font-weight: 700;
+    line-height: var(--lh-tight);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .card-summary {
+    font-size: var(--fs-small);
+    color: var(--color-text-secondary);
+    line-height: var(--lh-body);
+    margin-bottom: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .card-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .card-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+  }
+
+  .btn-expand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    background: var(--color-accent-dim);
+    border: none;
+    color: var(--color-accent);
+    padding: 0.375rem 0.75rem;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    transition: all var(--duration) var(--ease);
+  }
+  .btn-expand:hover {
+    background: var(--color-accent);
+    color: white;
+  }
+  .btn-expand svg {
+    flex-shrink: 0;
+  }
+
+  .btn-youtube {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    color: var(--color-text-tertiary);
+    transition: all var(--duration) var(--ease);
+  }
+  .btn-youtube:hover {
+    background: rgba(255, 0, 0, 0.1);
+    color: #ff4444;
+  }
+
+  /* ==================== Modal ==================== */
+  .card-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 200;
+  }
+  .card-modal.active {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(4px);
+  }
+
+  .modal-panel {
+    position: relative;
+    width: min(600px, 100%);
+    height: 100%;
+    background: var(--color-surface);
+    border-left: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    animation: slideIn 0.25s var(--ease);
+  }
+
+  @keyframes slideIn {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+  }
+
+  .modal-top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--color-border-subtle);
+    flex-shrink: 0;
+  }
+  .modal-channel {
+    font-weight: 700;
+    font-size: var(--fs-small);
+  }
+  .modal-close {
+    background: none;
+    border: none;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    padding: 0.25rem;
+    border-radius: 6px;
+    transition: all var(--duration) var(--ease);
+    display: flex;
+    align-items: center;
+  }
+  .modal-close:hover {
+    background: var(--color-surface-hover);
+    color: var(--color-text);
+  }
+
+  .modal-scroll {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.5rem;
+  }
+
+  .modal-header {
+    margin-bottom: 0;
+  }
+  .modal-date {
+    font-size: var(--fs-xs);
+    color: var(--color-text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .modal-header h2 {
+    font-family: var(--font-serif);
+    font-size: var(--fs-h2);
+    font-weight: 700;
+    line-height: var(--lh-tight);
+    margin-top: 0.375rem;
+  }
+  .modal-links {
+    margin-top: 0.75rem;
+  }
+  .yt-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: var(--fs-xs);
+    color: var(--color-text-secondary);
+    padding: 0.3rem 0.6rem;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--color-border);
+    transition: all var(--duration) var(--ease);
+  }
+  .yt-link:hover {
+    border-color: #ff4444;
+    color: #ff4444;
+  }
+
+  .divider {
+    border: none;
+    border-top: 1px solid var(--color-border-subtle);
+    margin: 1.25rem 0;
+  }
+
+  /* Sections */
+  .modal-section {
+    margin-bottom: 2rem;
+  }
+  .modal-section h4 {
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-accent);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .section-count {
+    font-size: var(--fs-xs);
+    background: var(--color-accent-dim);
+    padding: 0.1rem 0.4rem;
+    border-radius: var(--radius-full);
+    font-weight: 600;
+  }
+
+  .modal-summary p {
+    margin-bottom: 0.875rem;
+    font-size: var(--fs-body);
+    line-height: var(--lh-loose);
+    color: var(--color-text-secondary);
+  }
+
+  /* Insights */
+  .insights-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .insight-item {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-border-subtle);
+  }
+  .insight-item:last-child {
+    border-bottom: none;
+  }
+  .insight-num {
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    color: var(--color-text-tertiary);
+    font-family: var(--font-mono);
+    padding-top: 0.125rem;
+    flex-shrink: 0;
+    width: 1.5rem;
+  }
+  .insight-content {
+    flex: 1;
+    min-width: 0;
+  }
+  .insight-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 0.375rem;
+    flex-wrap: wrap;
+  }
+  .insight-topic {
+    font-weight: 600;
+    font-size: var(--fs-body);
+    line-height: var(--lh-tight);
+  }
+  .insight-badges {
+    display: flex;
+    gap: 0.3rem;
+    flex-shrink: 0;
+  }
+  .badge {
+    font-size: 0.65rem;
+    padding: 0.125rem 0.4rem;
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+  .stance-positive { background: #064e3b; color: #6ee7b7; }
+  .stance-negative { background: #7f1d1d; color: #fca5a5; }
+  .stance-neutral { background: #2d2d3a; color: #c4c4d4; }
+  .stance-mixed { background: #3b1d6e; color: #c4b5fd; }
+  .novelty-high { background: #5c3d10; color: #fde68a; }
+  .novelty-medium { background: #1a3152; color: #93c5fd; }
+  .novelty-low { background: #2d2d3a; color: #9ca3af; }
+
+  .insight-text {
+    font-size: var(--fs-small);
+    line-height: var(--lh-body);
+    color: var(--color-text-secondary);
+    margin-bottom: 0.5rem;
+  }
+  .insight-advice {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    font-size: var(--fs-small);
+    color: #6ee7b7;
+    background: rgba(6, 78, 59, 0.2);
+    padding: 0.625rem 0.75rem;
+    border-radius: var(--radius);
+    margin-bottom: 0.5rem;
+    line-height: var(--lh-body);
+  }
+  .insight-advice svg {
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+  }
+  .insight-keywords {
+    display: flex;
+    gap: 0.25rem;
+    flex-wrap: wrap;
+    margin-top: 0.25rem;
+  }
+
+  .keywords-list {
+    display: flex;
+    gap: 0.375rem;
+    flex-wrap: wrap;
+  }
+
+  /* ==================== Responsive ==================== */
+  @media (max-width: 768px) {
+    .card-body {
+      padding: 1rem 1.125rem 0.875rem;
+    }
+
+    .card-bottom {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.625rem;
+    }
+
+    .card-actions {
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    .modal-panel {
+      width: 100%;
+      border-left: none;
+    }
+
+    .modal-scroll {
+      padding: 1.25rem 1rem;
+    }
+
+    .insight-item {
+      gap: 0.625rem;
+    }
+    .insight-num {
+      display: none;
+    }
+  }
+</style>

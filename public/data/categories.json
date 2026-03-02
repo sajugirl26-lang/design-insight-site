@@ -1,0 +1,95 @@
+{
+  "generated_at": "2026-03-02T22:15:09.214437",
+  "categories": [
+    {
+      "id": "motion_3d",
+      "name_ko": "모션 & 3D",
+      "description": "모션그래픽, 3D 아트, VFX, 애니메이션",
+      "count": 46
+    },
+    {
+      "id": "tools_workflow",
+      "name_ko": "도구 & 워크플로우",
+      "description": "Figma, 프로토타이핑 도구, 생산성",
+      "count": 41
+    },
+    {
+      "id": "tutorial_technique",
+      "name_ko": "튜토리얼 & 테크닉",
+      "description": "실습, 테크닉 강좌, 팁",
+      "count": 37
+    },
+    {
+      "id": "ai_design",
+      "name_ko": "AI와 디자인",
+      "description": "AI 도구 활용, AI 시대 디자인 변화",
+      "count": 25
+    },
+    {
+      "id": "career_business",
+      "name_ko": "커리어 & 비즈니스",
+      "description": "프리랜싱, 가격 책정, 스튜디오 운영, 취업",
+      "count": 25
+    },
+    {
+      "id": "industry_opinion",
+      "name_ko": "업계 비평 & 오피니언",
+      "description": "디자인 업계 담론, 비평, 전망",
+      "count": 23
+    },
+    {
+      "id": "culture_inspiration",
+      "name_ko": "문화 & 영감",
+      "description": "아트 무브먼트, 문화 비평, 영감 소스",
+      "count": 16
+    },
+    {
+      "id": "creative_coding",
+      "name_ko": "크리에이티브 코딩 & 제너러티브",
+      "description": "제너러티브 아트, 인터랙티브, TouchDesigner",
+      "count": 13
+    },
+    {
+      "id": "branding",
+      "name_ko": "브랜딩 & 아이덴티티",
+      "description": "로고, 브랜드 전략, 비주얼 아이덴티티",
+      "count": 10
+    },
+    {
+      "id": "web_design",
+      "name_ko": "웹 디자인 & 개발",
+      "description": "웹사이트 디자인, 프론트엔드, 반응형",
+      "count": 8
+    },
+    {
+      "id": "ui_visual",
+      "name_ko": "UI & 비주얼 디자인",
+      "description": "인터페이스 디자인, 비주얼 트렌드",
+      "count": 7
+    },
+    {
+      "id": "ux_research",
+      "name_ko": "UX 리서치 & 전략",
+      "description": "사용자 리서치, UX 전략, 서비스 디자인",
+      "count": 2
+    },
+    {
+      "id": "typography",
+      "name_ko": "타이포그래피 & 레이아웃",
+      "description": "타입 디자인, 레이아웃, 그리드 시스템",
+      "count": 1
+    },
+    {
+      "id": "media_art",
+      "name_ko": "미디어아트 & 설치",
+      "description": "인스톨레이션, 미디어아트, 디지털 아트",
+      "count": 1
+    },
+    {
+      "id": "design_system",
+      "name_ko": "디자인 시스템",
+      "description": "컴포넌트, 토큰, 스케일러블 디자인",
+      "count": 0
+    }
+  ]
+}

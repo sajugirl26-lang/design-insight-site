@@ -1,0 +1,72 @@
+---
+---
+
+<div class="search-bar">
+  <div class="search-icon">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <circle cx="11" cy="11" r="8"/>
+      <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+    </svg>
+  </div>
+  <input type="text" id="search-input" placeholder="키워드, 채널, 주제 검색..." autocomplete="off" />
+  <kbd class="search-hint">Ctrl+K</kbd>
+</div>
+
+<style>
+  .search-bar {
+    position: relative;
+    margin-bottom: 1rem;
+  }
+  .search-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-text-tertiary);
+    display: flex;
+    pointer-events: none;
+  }
+  #search-input {
+    width: 100%;
+    padding: 0.75rem 1rem 0.75rem 2.75rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);
+    color: var(--color-text);
+    font-size: var(--fs-body);
+    font-family: var(--font-sans);
+    outline: none;
+    transition: all var(--duration) var(--ease);
+  }
+  #search-input:focus {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px var(--color-accent-dim);
+    background: var(--color-surface-hover);
+  }
+  #search-input::placeholder {
+    color: var(--color-text-tertiary);
+  }
+  .search-hint {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.65rem;
+    font-family: var(--font-mono);
+    color: var(--color-text-tertiary);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    padding: 0.15rem 0.4rem;
+    pointer-events: none;
+  }
+
+  @media (max-width: 768px) {
+    .search-hint {
+      display: none;
+    }
+    #search-input {
+      font-size: 16px; /* prevent iOS zoom */
+    }
+  }
+</style>

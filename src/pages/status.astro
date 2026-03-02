@@ -1,0 +1,350 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getTimeline, getChannels } from '../scripts/data';
+
+const timeline = getTimeline();
+const { channels } = getChannels();
+
+const activeChannels = channels.filter((ch: any) => ch.total_videos > 0);
+const dates = [...new Set(timeline.cards.map((c: any) => c.date || c.published_at))].sort().reverse();
+const lastUpdate = timeline.generated_at;
+---
+
+<Layout title="시스템 상태">
+  <section class="status-section">
+    <div class="page-header">
+      <div class="status-indicator">
+        <span class="pulse"></span>
+        <span class="status-text">운영 중</span>
+      </div>
+      <h1 class="section-title">시스템 상태</h1>
+    </div>
+
+    <!-- Status cards -->
+    <div class="status-grid">
+      <div class="status-item">
+        <div class="status-label">마지막 빌드</div>
+        <div class="status-value">{new Date(lastUpdate).toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' })}</div>
+      </div>
+      <div class="status-item">
+        <div class="status-label">수집 날짜 수</div>
+        <div class="status-value">{dates.length}<span class="unit">일</span></div>
+      </div>
+      <div class="status-item">
+        <div class="status-label">활성 채널</div>
+        <div class="status-value">{activeChannels.length}<span class="unit"> / {channels.length}</span></div>
+      </div>
+      <div class="status-item">
+        <div class="status-label">분석 영상</div>
+        <div class="status-value">{timeline.total_cards}<span class="unit">개</span></div>
+      </div>
+    </div>
+
+    <!-- Channel table -->
+    <div class="table-section">
+      <h2>채널별 현황</h2>
+
+      <!-- Desktop table -->
+      <div class="table-wrap">
+        <table class="status-table">
+          <thead>
+            <tr>
+              <th>채널</th>
+              <th>그룹</th>
+              <th class="num-th">영상</th>
+              <th class="num-th">인사이트</th>
+              <th>최근 수집</th>
+            </tr>
+          </thead>
+          <tbody>
+            {channels.sort((a: any, b: any) => b.total_videos - a.total_videos).map((ch: any) => (
+              <tr class={ch.total_videos === 0 ? 'inactive' : ''}>
+                <td class="name-cell">
+                  <a href={ch.url} target="_blank" rel="noopener">{ch.name}</a>
+                </td>
+                <td class="group-cell">{ch.group}</td>
+                <td class="num-cell">{ch.total_videos}</td>
+                <td class="num-cell">{ch.total_insights}</td>
+                <td class="date-cell">{ch.latest_date || '-'}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Mobile cards (replaces table on small screens) -->
+      <div class="channel-cards-mobile">
+        {channels.sort((a: any, b: any) => b.total_videos - a.total_videos).map((ch: any) => (
+          <div class={`mobile-ch-card ${ch.total_videos === 0 ? 'inactive' : ''}`}>
+            <div class="mobile-ch-top">
+              <a href={ch.url} target="_blank" rel="noopener" class="mobile-ch-name">{ch.name}</a>
+              <span class="mobile-ch-group">{ch.group}</span>
+            </div>
+            <div class="mobile-ch-stats">
+              <span>{ch.total_videos} 영상</span>
+              <span>{ch.total_insights} 인사이트</span>
+              <span>{ch.latest_date || '-'}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- History -->
+    {dates.length > 0 && (
+      <div class="history-section">
+        <h2>수집 히스토리</h2>
+        <div class="date-grid">
+          {dates.slice(0, 30).map(d => {
+            const count = timeline.cards.filter((c: any) => (c.date || c.published_at) === d).length;
+            const maxCount = Math.max(...dates.slice(0, 30).map(dd => timeline.cards.filter((c: any) => (c.date || c.published_at) === dd).length));
+            const barWidth = Math.max(8, (count / Math.max(1, maxCount)) * 100);
+            return (
+              <div class="date-row">
+                <span class="date-label">{d}</span>
+                <div class="date-bar-track">
+                  <div class="date-bar-fill" style={`width: ${barWidth}%`}></div>
+                </div>
+                <span class="date-count">{count}</span>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    )}
+  </section>
+</Layout>
+
+<style>
+  .status-section {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .page-header {
+    margin-bottom: 2rem;
+  }
+  .status-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.3rem 0.75rem;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    border-radius: var(--radius-full);
+    margin-bottom: 0.75rem;
+  }
+  .pulse {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #10b981;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+  .status-text {
+    font-size: var(--fs-xs);
+    color: #10b981;
+    font-weight: 600;
+  }
+
+  /* Status grid */
+  .status-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 2.5rem;
+  }
+  .status-item {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border-subtle);
+    border-radius: var(--radius-lg);
+    padding: 1.125rem;
+  }
+  .status-label {
+    font-size: var(--fs-xs);
+    color: var(--color-text-tertiary);
+    font-weight: 500;
+    margin-bottom: 0.375rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .status-value {
+    font-size: 1.25rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+  .unit {
+    font-size: var(--fs-small);
+    font-weight: 400;
+    color: var(--color-text-secondary);
+  }
+
+  /* Table section */
+  .table-section {
+    margin-bottom: 2.5rem;
+  }
+  .table-section h2 {
+    font-family: var(--font-serif);
+    font-size: var(--fs-h2);
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .table-wrap {
+    overflow-x: auto;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border-subtle);
+  }
+  .status-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--fs-small);
+  }
+  .status-table th {
+    text-align: left;
+    padding: 0.75rem 1rem;
+    background: var(--color-surface);
+    color: var(--color-text-tertiary);
+    font-weight: 600;
+    font-size: var(--fs-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .num-th {
+    text-align: center !important;
+  }
+  .status-table td {
+    padding: 0.625rem 1rem;
+    border-bottom: 1px solid var(--color-border-subtle);
+  }
+  .status-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+  .status-table tbody tr:hover {
+    background: var(--color-surface-hover);
+  }
+  .status-table tr.inactive td {
+    opacity: 0.35;
+  }
+  .name-cell a {
+    font-weight: 600;
+  }
+  .group-cell {
+    font-size: var(--fs-xs);
+    color: var(--color-text-tertiary);
+  }
+  .num-cell {
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+  }
+  .date-cell {
+    font-size: var(--fs-xs);
+    color: var(--color-text-secondary);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Mobile channel cards */
+  .channel-cards-mobile {
+    display: none;
+  }
+
+  /* History */
+  .history-section h2 {
+    font-family: var(--font-serif);
+    font-size: var(--fs-h2);
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  .date-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  .date-row {
+    display: grid;
+    grid-template-columns: 100px 1fr 30px;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.375rem 0;
+  }
+  .date-label {
+    font-size: var(--fs-xs);
+    color: var(--color-text-secondary);
+    font-variant-numeric: tabular-nums;
+    font-family: var(--font-mono);
+  }
+  .date-bar-track {
+    height: 6px;
+    background: var(--color-border-subtle);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .date-bar-fill {
+    height: 100%;
+    background: var(--color-accent);
+    border-radius: 3px;
+    transition: width 0.3s var(--ease);
+  }
+  .date-count {
+    font-size: var(--fs-xs);
+    color: var(--color-text-tertiary);
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .status-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .table-wrap {
+      display: none;
+    }
+    .channel-cards-mobile {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .mobile-ch-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius);
+      padding: 0.875rem 1rem;
+    }
+    .mobile-ch-card.inactive {
+      opacity: 0.35;
+    }
+    .mobile-ch-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.375rem;
+    }
+    .mobile-ch-name {
+      font-weight: 600;
+      font-size: var(--fs-body);
+    }
+    .mobile-ch-group {
+      font-size: var(--fs-xs);
+      color: var(--color-text-tertiary);
+    }
+    .mobile-ch-stats {
+      display: flex;
+      gap: 0.75rem;
+      font-size: var(--fs-xs);
+      color: var(--color-text-secondary);
+    }
+
+    .date-row {
+      grid-template-columns: 85px 1fr 25px;
+      gap: 0.5rem;
+    }
+  }
+</style>

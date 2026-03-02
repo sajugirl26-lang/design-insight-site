@@ -1,0 +1,58 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="월간 리포트">
+  <section class="monthly-section">
+    <div class="coming-soon">
+      <div class="icon-wrap">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+        </svg>
+      </div>
+      <h1 class="section-title">월간 리포트</h1>
+      <p class="desc">월간 재분석(WF5)이 실행되면 종합 리포트가 여기에 표시됩니다.</p>
+      <div class="schedule-info">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <span>매월 1~7일에 점진적으로 생성됩니다</span>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .monthly-section {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .coming-soon {
+    text-align: center;
+    padding: 6rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .icon-wrap {
+    color: var(--color-text-tertiary);
+    margin-bottom: 0.5rem;
+  }
+  .desc {
+    color: var(--color-text-secondary);
+    font-size: var(--fs-body);
+    max-width: 400px;
+    line-height: var(--lh-body);
+  }
+  .schedule-info {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border-subtle);
+    border-radius: var(--radius-full);
+    font-size: var(--fs-small);
+    color: var(--color-text-tertiary);
+  }
+</style>

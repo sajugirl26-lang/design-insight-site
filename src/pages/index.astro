@@ -1,0 +1,288 @@
+---
+import Layout from '../layouts/Layout.astro';
+import TimelineCard from '../components/TimelineCard.astro';
+import CategoryFilter from '../components/CategoryFilter.astro';
+import SearchBar from '../components/SearchBar.astro';
+import { getTimeline, getCategories } from '../scripts/data';
+
+const timeline = getTimeline();
+const { categories } = getCategories();
+const cards = timeline.cards;
+const totalInsights = cards.reduce((sum: number, c: any) => sum + c.insights.length, 0);
+const uniqueChannels = new Set(cards.map((c: any) => c.channel)).size;
+---
+
+<Layout title="타임라인">
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="hero-label">Design YouTube Curation</p>
+      <h1 class="hero-title">디자인 인사이트<br/>매일 큐레이션</h1>
+      <p class="hero-desc">해외 디자인 유튜버 25명의 영상을 AI가 분석하고,<br/>핵심 인사이트를 한국어로 전달합니다.</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="stat-num">{cards.length}</span>
+          <span class="stat-label">분석 영상</span>
+        </div>
+        <div class="hero-divider"></div>
+        <div class="hero-stat">
+          <span class="stat-num">{totalInsights}</span>
+          <span class="stat-label">인사이트</span>
+        </div>
+        <div class="hero-divider"></div>
+        <div class="hero-stat">
+          <span class="stat-num">{uniqueChannels}</span>
+          <span class="stat-label">채널</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Controls -->
+  <section class="controls-section">
+    <SearchBar />
+    <CategoryFilter categories={categories} />
+  </section>
+
+  <!-- Timeline Grid -->
+  <section class="timeline-section">
+    <div class="timeline-grid" id="timeline-grid">
+      {cards.map(card => (
+        <TimelineCard
+          videoId={card.video_id}
+          channel={card.channel}
+          channelGroup={card.channel_group}
+          titleKo={card.title_ko}
+          summaryShortKo={card.summary_short_ko}
+          summaryKo={card.summary_ko}
+          categories={card.categories}
+          keywords={card.keywords}
+          insights={card.insights}
+          youtubeUrl={card.youtube_url}
+          publishedAt={card.published_at}
+          date={card.date}
+        />
+      ))}
+    </div>
+
+    {cards.length === 0 && (
+      <div class="empty-state">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color: var(--color-text-tertiary); margin-bottom: 1rem;">
+          <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+        </svg>
+        <p>아직 수집된 데이터가 없습니다.</p>
+        <p class="empty-sub">파이프라인을 실행하면 여기에 인사이트 카드가 표시됩니다.</p>
+      </div>
+    )}
+  </section>
+</Layout>
+
+<script>
+  // Modal open/close
+  document.querySelectorAll('.btn-expand').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = (btn as HTMLElement).dataset.target;
+      if (targetId) {
+        document.getElementById(targetId)?.classList.add('active');
+        document.body.classList.add('modal-open');
+      }
+    });
+  });
+
+  document.querySelectorAll('.modal-close').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const closeId = (btn as HTMLElement).dataset.close;
+      if (closeId) {
+        document.getElementById(closeId)?.classList.remove('active');
+        document.body.classList.remove('modal-open');
+      }
+    });
+  });
+
+  // Close modal on backdrop click
+  document.querySelectorAll('.modal-backdrop').forEach(backdrop => {
+    backdrop.addEventListener('click', () => {
+      backdrop.closest('.card-modal')?.classList.remove('active');
+      document.body.classList.remove('modal-open');
+    });
+  });
+
+  // Close modal on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.card-modal.active').forEach(m => m.classList.remove('active'));
+      document.body.classList.remove('modal-open');
+    }
+  });
+
+  // Ctrl+K to focus search
+  document.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+      e.preventDefault();
+      (document.getElementById('search-input') as HTMLInputElement)?.focus();
+    }
+  });
+
+  // Category filter
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const category = (btn as HTMLElement).dataset.category;
+      const cards = document.querySelectorAll('.timeline-card');
+
+      cards.forEach(card => {
+        if (category === 'all') {
+          (card as HTMLElement).style.display = '';
+          return;
+        }
+        const cardCats = JSON.parse((card as HTMLElement).dataset.categories || '[]');
+        const match = cardCats.includes(category);
+        (card as HTMLElement).style.display = match ? '' : 'none';
+      });
+    });
+  });
+
+  // Search
+  const searchInput = document.getElementById('search-input') as HTMLInputElement;
+  if (searchInput) {
+    searchInput.addEventListener('input', () => {
+      const query = searchInput.value.toLowerCase().trim();
+      const cards = document.querySelectorAll('.timeline-card');
+
+      if (!query) {
+        cards.forEach(card => (card as HTMLElement).style.display = '');
+        return;
+      }
+
+      cards.forEach(card => {
+        const text = card.textContent?.toLowerCase() || '';
+        (card as HTMLElement).style.display = text.includes(query) ? '' : 'none';
+      });
+    });
+  }
+</script>
+
+<style>
+  /* Hero */
+  .hero {
+    text-align: center;
+    padding: 2.5rem 0 2rem;
+    margin-bottom: 0.5rem;
+  }
+  .hero-inner {
+    max-width: var(--content-width);
+    margin: 0 auto;
+  }
+  .hero-label {
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-accent);
+    margin-bottom: 0.75rem;
+  }
+  .hero-title {
+    font-family: var(--font-serif);
+    font-size: var(--fs-hero);
+    font-weight: 700;
+    line-height: var(--lh-tight);
+    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+  }
+  .hero-desc {
+    font-size: var(--fs-body);
+    color: var(--color-text-secondary);
+    line-height: var(--lh-body);
+    margin-bottom: 1.75rem;
+  }
+  .hero-stats {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0.875rem 1.5rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border-subtle);
+    border-radius: var(--radius-full);
+  }
+  .hero-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.125rem;
+  }
+  .stat-num {
+    font-size: 1.25rem;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    color: var(--color-accent);
+  }
+  .stat-label {
+    font-size: var(--fs-xs);
+    color: var(--color-text-tertiary);
+  }
+  .hero-divider {
+    width: 1px;
+    height: 28px;
+    background: var(--color-border);
+  }
+
+  /* Controls */
+  .controls-section {
+    max-width: 900px;
+    margin: 0 auto 0.5rem;
+  }
+
+  /* Timeline */
+  .timeline-section {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .timeline-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .empty-state p {
+    color: var(--color-text-secondary);
+    font-size: var(--fs-body);
+  }
+  .empty-sub {
+    font-size: var(--fs-small) !important;
+    color: var(--color-text-tertiary) !important;
+    margin-top: 0.375rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero {
+      padding: 1.5rem 0 1.25rem;
+    }
+    .hero-title {
+      font-size: clamp(1.5rem, 7vw, 2.25rem);
+    }
+    .hero-desc br {
+      display: none;
+    }
+    .hero-stats {
+      gap: 1rem;
+      padding: 0.75rem 1.25rem;
+    }
+    .stat-num {
+      font-size: 1.1rem;
+    }
+
+    .timeline-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

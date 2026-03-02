@@ -1,0 +1,277 @@
+{
+  "generated_at": "2026-03-02T22:15:09.196118",
+  "channels": [
+    {
+      "name": "The Futur",
+      "url": "https://youtube.com/@thefutur",
+      "group": "vision_opinion",
+      "subscribers": "~2.7M",
+      "description": "크리에이티브 스튜디오 경영, AI 시대 디자이너 포지셔닝, 가격 전략",
+      "total_videos": 3,
+      "total_insights": 14,
+      "latest_date": "2026-03-02"
+    },
+    {
+      "name": "Malewicz",
+      "url": "https://youtube.com/@MalewiczHype",
+      "group": "vision_opinion",
+      "subscribers": "~200K+",
+      "description": "AI가 디자인에 미치는 구조적 영향 분석, UI 트렌드 비평",
+      "total_videos": 3,
+      "total_insights": 11,
+      "latest_date": "2026-03-02"
+    },
+    {
+      "name": "Matthew Encina",
+      "url": "https://youtube.com/@MatthewEncina",
+      "group": "vision_opinion",
+      "subscribers": "~500K+",
+      "description": "AI를 크리에이티브 디렉션에 체계적으로 통합하는 방법론. CLIO 수상",
+      "total_videos": 0,
+      "total_insights": 0,
+      "latest_date": ""
+    },
+    {
+      "name": "Matt Wolfe",
+      "url": "https://youtube.com/@MattVidPro",
+      "group": "vision_opinion",
+      "subscribers": "~700K",
+      "description": "AI 크리에이티브 도구 총정리. 디자이너/아티스트용 AI 도구 큐레이션 전문",
+      "total_videos": 8,
+      "total_insights": 28,
+      "latest_date": "2026-03-02"
+    },
+    {
+      "name": "Elliot Ulm",
+      "url": "https://youtube.com/@elliotisacoolguy",
+      "group": "vision_opinion",
+      "subscribers": "~300K",
+      "description": "디자인 비평 + 코미디. 비주얼 랭귀지를 풍자적으로 해부",
+      "total_videos": 0,
+      "total_insights": 0,
+      "latest_date": ""
+    },
+    {
+      "name": "Pwnisher",
+      "url": "https://youtube.com/@pwnisher",
+      "group": "ai_3d_motion",
+      "subscribers": "~1M+",
+      "description": "3D 아트 커뮤니티 챌린지 운영, AI+VFX 실험. 前 Corridor Digital",
+      "total_videos": 6,
+      "total_insights": 14,
+      "latest_date": "2026-03-02"
+    },
+    {
+      "name": "Greyscalegorilla",
+      "url": "https://youtube.com/@greyscalegorilla",
+      "group": "ai_3d_motion",
+      "subscribers": "~500K+",
+      "description": "C4D 기반 3D 모션 + 크리에이티브 비즈니스 운영 인사이트",
+      "total_videos": 0,
+      "total_insights": 0,
+      "latest_date": ""
+    },
+    {
+      "name": "Corridor Crew",
+      "url": "https://youtube.com/@CorridorCrew",
+      "group": "ai_3d_motion",
+      "subscribers": "~10M",
+      "description": "AI를 VFX 프로덕션에 실제 적용. 업계 담론을 직접 만듦",
+      "total_videos": 21,
+      "total_insights": 45,
+      "latest_date": "2026-03-02"
+    },
+    {
+      "name": "David Ariew",
+      "url": "https://youtube.com/@octanejesus",
+      "group": "ai_3d_motion",
+      "subscribers": "~100K+",
+      "description": "Octane 기반 뮤직비주얼 3D 아티스트. 워크플로우 공유",
+      "total_videos": 0,
+      "total_insights": 0,
+      "latest_date": ""
+    },
+    {
+      "name": "Entagma",
+      "url": "https://youtube.com/@Entagma",
+      "group": "ai_3d_motion",
+      "subscribers": "~150K+",
+      "description": "Houdini 프로시져럴 디자인 + AI 통합 워크플로우",
+      "total_videos": 3,
+      "total_insights": 4,
+      "latest_date": "2026-03-02"
+    },
+    {
+      "name": "School of Motion",
+      "url": "https://youtube.com/@SchoolofMotion",
+      "group": "ai_3d_motion",
+      "subscribers": "~500K+",
+      "description": "모션 디자인 업계 팟캐스트, 대형 스튜디오 파운더 인터뷰",
+      "total_videos": 21,
+      "total_insights": 51,
+      "latest_date": "2026-03-02"
+    },
+    {
+      "name": "eyedesyn",
+      "url": "https://youtube.com/@eyedesyn",
+      "group": "ai_3d_motion",
+      "subscribers": "~200K+",
+      "description": "C4D 모션그래픽, 프로시져럴 접근법",
+      "total_videos": 2,
+      "total_insights": 4,
+      "latest_date": "2026-03-02"
+    },
+    {
+      "name": "Ben Marriott",
+      "url": "https://youtube.com/@BenMarriott",
+      "group": "ai_3d_motion",
+      "subscribers": "~500K+",
+      "description": "모션 트렌드 분석, 핸드드로잉+디지털 융합",
+      "total_videos": 2,
+      "total_insights": 4,
+      "latest_date": "2026-03-02"
+    },
+    {
+      "name": "Nerdwriter1",
+      "url": "https://youtube.com/@Nerdwriter1",
+      "group": "media_art",
+      "subscribers": "~3.7M",
+      "description": "아트·디자인·기술 교차점을 비디오 에세이로 구조 분석",
+      "total_videos": 1,
+      "total_insights": 3,
+      "latest_date": "2026-03-02"
+    },
+    {
+      "name": "Solar Sands",
+      "url": "https://youtube.com/@SolarSands",
+      "group": "media_art",
+      "subscribers": "~1.4M",
+      "description": "아트 무브먼트·디지털 아트 흐름 비평 에세이",
+      "total_videos": 0,
+      "total_insights": 0,
+      "latest_date": ""
+    },
+    {
+      "name": "Torin Blankensmith",
+      "url": "https://youtube.com/@blankensmithing",
+      "group": "media_art",
+      "subscribers": "~50K+",
+      "description": "TouchDesigner+AI, 인터랙티브 인스톨레이션. NYU/Parsons 교수",
+      "total_videos": 0,
+      "total_insights": 0,
+      "latest_date": ""
+    },
+    {
+      "name": "Daniel Shiffman",
+      "url": "https://youtube.com/@TheCodingTrain",
+      "group": "media_art",
+      "subscribers": "~1.9M",
+      "description": "크리에이티브 코딩 철학, 제너러티브 아트의 본질 탐구. NYU ITP 교수",
+      "total_videos": 0,
+      "total_insights": 0,
+      "latest_date": ""
+    },
+    {
+      "name": "Ravie Studio",
+      "url": "https://youtube.com/@RavieStudio",
+      "group": "studio_business",
+      "subscribers": "~100K+",
+      "description": "21세에 모션 스튜디오 창업→8인 팀. 유튜브로 클라이언트 유치한 실전 성장기",
+      "total_videos": 0,
+      "total_insights": 0,
+      "latest_date": ""
+    },
+    {
+      "name": "Ordinary Folk",
+      "url": "https://youtube.com/@OrdinaryFolk",
+      "group": "studio_business",
+      "subscribers": "~50K+",
+      "description": "BUCK→Giant Ant→독립 스튜디오 창업 여정. 하이엔드 모션 스튜디오 운영",
+      "total_videos": 0,
+      "total_insights": 0,
+      "latest_date": ""
+    },
+    {
+      "name": "Roberto Blake",
+      "url": "https://youtube.com/@RobertoBlake",
+      "group": "studio_business",
+      "subscribers": "~600K",
+      "description": "크리에이터 이코노미 구조, 크리에이티브 비즈니스 스케일링 전략",
+      "total_videos": 4,
+      "total_insights": 6,
+      "latest_date": "2026-03-02"
+    },
+    {
+      "name": "Will Paterson",
+      "url": "https://youtube.com/@WillPaterson",
+      "group": "branding_process",
+      "subscribers": "~980K",
+      "description": "로고/브랜딩 실무 — 스튜디오 브랜드 구축 시 참고",
+      "total_videos": 0,
+      "total_insights": 0,
+      "latest_date": ""
+    },
+    {
+      "name": "Satori Graphics",
+      "url": "https://youtube.com/@SatoriGraphics",
+      "group": "branding_process",
+      "subscribers": "~1M+",
+      "description": "브랜딩 비주얼 로직, 레이아웃 분석",
+      "total_videos": 6,
+      "total_insights": 18,
+      "latest_date": "2026-03-02"
+    },
+    {
+      "name": "James Barnard",
+      "url": "https://youtube.com/@barnardco",
+      "group": "branding_process",
+      "subscribers": "~200K+",
+      "description": "수상 경력 로고 디자인, 실전 워크플로우",
+      "total_videos": 4,
+      "total_insights": 10,
+      "latest_date": "2026-03-02"
+    },
+    {
+      "name": "Ran Segall",
+      "url": "https://youtube.com/@FluxAcademy",
+      "group": "branding_process",
+      "subscribers": "~1M",
+      "description": "디자인 비즈니스 모델, 프리랜서→스튜디오 전환",
+      "total_videos": 12,
+      "total_insights": 34,
+      "latest_date": "2026-03-02"
+    },
+    {
+      "name": "Beeple",
+      "url": "https://youtube.com/@beeple",
+      "group": "branding_process",
+      "subscribers": "~500K+",
+      "description": "매일 1작품 Everydays, $69M 경매. 3D+AI 아트 비즈니스의 가능성",
+      "total_videos": 0,
+      "total_insights": 0,
+      "latest_date": ""
+    }
+  ],
+  "groups": {
+    "vision_opinion": {
+      "name_ko": "AI 시대 디자인 비전 & 오피니언",
+      "description": "AI와 디자인의 미래, 업계 비평, 포지셔닝 전략"
+    },
+    "ai_3d_motion": {
+      "name_ko": "AI x 3D / 모션그래픽",
+      "description": "3D 아트, VFX, 모션 디자인에서의 AI 활용과 워크플로우"
+    },
+    "media_art": {
+      "name_ko": "미디어아트 & 제너러티브 아트",
+      "description": "아트·디자인·기술 교차점, 크리에이티브 코딩, 인터랙티브 아트"
+    },
+    "studio_business": {
+      "name_ko": "스튜디오 창업 & 크리에이티브 비즈니스",
+      "description": "스튜디오 운영, 프리랜싱, 크리에이터 이코노미"
+    },
+    "branding_process": {
+      "name_ko": "브랜딩 & 크리에이티브 프로세스",
+      "description": "로고, 브랜딩, 디자인 비즈니스 모델, 실무 워크플로우"
+    }
+  }
+}

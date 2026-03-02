@@ -1,0 +1,278 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getTimeline } from '../scripts/data';
+
+const timeline = getTimeline();
+
+// Rank by insights count
+const channelRank = new Map<string, { videos: number; insights: number }>();
+for (const card of timeline.cards) {
+  const existing = channelRank.get(card.channel) || { videos: 0, insights: 0 };
+  existing.videos += 1;
+  existing.insights += card.insights.length;
+  channelRank.set(card.channel, existing);
+}
+
+const ranked = Array.from(channelRank.entries())
+  .map(([name, stats]) => ({ name, ...stats }))
+  .sort((a, b) => b.insights - a.insights);
+
+const maxInsights = ranked[0]?.insights || 1;
+---
+
+<Layout title="랭킹">
+  <section class="ranking-section">
+    <div class="page-header">
+      <h1 class="section-title">채널 랭킹</h1>
+      <p class="section-subtitle">인사이트 추출 수 기준으로 정렬</p>
+    </div>
+
+    {ranked.length > 0 ? (
+      <>
+        <!-- Top 3 Podium -->
+        {ranked.length >= 3 && (
+          <div class="podium">
+            <div class="podium-item second">
+              <div class="podium-medal silver">2</div>
+              <div class="podium-name">{ranked[1].name}</div>
+              <div class="podium-stat">{ranked[1].insights} 인사이트</div>
+              <div class="podium-bar" style={`height: ${60 * (ranked[1].insights / maxInsights)}px`}></div>
+            </div>
+            <div class="podium-item first">
+              <div class="podium-medal gold">1</div>
+              <div class="podium-name">{ranked[0].name}</div>
+              <div class="podium-stat">{ranked[0].insights} 인사이트</div>
+              <div class="podium-bar" style={`height: ${80}px`}></div>
+            </div>
+            <div class="podium-item third">
+              <div class="podium-medal bronze">3</div>
+              <div class="podium-name">{ranked[2].name}</div>
+              <div class="podium-stat">{ranked[2].insights} 인사이트</div>
+              <div class="podium-bar" style={`height: ${60 * (ranked[2].insights / maxInsights)}px`}></div>
+            </div>
+          </div>
+        )}
+
+        <!-- Full ranking list -->
+        <div class="ranking-list">
+          {ranked.map((ch, i) => {
+            const barWidth = Math.max(4, (ch.insights / maxInsights) * 100);
+            return (
+              <div class={`rank-item ${i < 3 ? 'top-three' : ''}`}>
+                <span class={`rank-num ${i === 0 ? 'gold' : i === 1 ? 'silver' : i === 2 ? 'bronze' : ''}`}>
+                  {i + 1}
+                </span>
+                <div class="rank-info">
+                  <span class="rank-name">{ch.name}</span>
+                  <div class="rank-bar-track">
+                    <div class="rank-bar-fill" style={`width: ${barWidth}%`}></div>
+                  </div>
+                </div>
+                <div class="rank-stats">
+                  <span class="rank-insight">{ch.insights}</span>
+                  <span class="rank-video">{ch.videos} 영상</span>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </>
+    ) : (
+      <div class="empty-state">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color: var(--color-text-tertiary); margin-bottom: 1rem;">
+          <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+        </svg>
+        <p>데이터가 수집되면 랭킹이 표시됩니다.</p>
+      </div>
+    )}
+  </section>
+</Layout>
+
+<style>
+  .ranking-section {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .page-header {
+    margin-bottom: 2rem;
+  }
+
+  /* Podium */
+  .podium {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 2.5rem;
+    padding: 1rem 0;
+  }
+  .podium-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.375rem;
+    width: 140px;
+  }
+  .podium-medal {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 0.875rem;
+  }
+  .podium-medal.gold {
+    background: linear-gradient(135deg, #f5c542, #e6a817);
+    color: #2d1f00;
+  }
+  .podium-medal.silver {
+    background: linear-gradient(135deg, #d0d0dd, #a0a0b0);
+    color: #1a1a2e;
+  }
+  .podium-medal.bronze {
+    background: linear-gradient(135deg, #cd7f32, #a06228);
+    color: #1a0f00;
+  }
+  .podium-name {
+    font-weight: 700;
+    font-size: var(--fs-small);
+    text-align: center;
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .podium-stat {
+    font-size: var(--fs-xs);
+    color: var(--color-text-tertiary);
+  }
+  .podium-bar {
+    width: 80px;
+    background: linear-gradient(180deg, var(--color-accent) 0%, rgba(124,124,247,0.2) 100%);
+    border-radius: var(--radius) var(--radius) 0 0;
+    min-height: 20px;
+  }
+  .podium-item.first .podium-bar {
+    width: 100px;
+  }
+
+  /* List */
+  .ranking-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+  }
+  .rank-item {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    padding: 0.75rem 1rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border-subtle);
+    border-radius: var(--radius);
+    transition: all var(--duration) var(--ease);
+  }
+  .rank-item:hover {
+    background: var(--color-surface-hover);
+  }
+  .rank-item.top-three {
+    border-color: var(--color-border);
+  }
+
+  .rank-num {
+    font-weight: 800;
+    font-size: var(--fs-body);
+    color: var(--color-text-tertiary);
+    min-width: 1.75rem;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+  }
+  .rank-num.gold { color: var(--color-gold); }
+  .rank-num.silver { color: var(--color-silver); }
+  .rank-num.bronze { color: var(--color-bronze); }
+
+  .rank-info {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  .rank-name {
+    font-weight: 600;
+    font-size: var(--fs-body);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .rank-bar-track {
+    height: 4px;
+    background: var(--color-border);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .rank-bar-fill {
+    height: 100%;
+    background: var(--color-accent);
+    border-radius: 2px;
+    transition: width 0.4s var(--ease);
+  }
+
+  .rank-stats {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.05rem;
+    flex-shrink: 0;
+  }
+  .rank-insight {
+    font-weight: 700;
+    font-size: var(--fs-body);
+    color: var(--color-accent);
+    font-variant-numeric: tabular-nums;
+  }
+  .rank-video {
+    font-size: var(--fs-xs);
+    color: var(--color-text-tertiary);
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .empty-state p {
+    color: var(--color-text-secondary);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .podium {
+      gap: 0.25rem;
+    }
+    .podium-item {
+      width: 100px;
+    }
+    .podium-item.first .podium-bar {
+      width: 70px;
+    }
+    .podium-bar {
+      width: 55px;
+    }
+    .podium-name {
+      font-size: var(--fs-xs);
+      max-width: 90px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .podium {
+      display: none;
+    }
+  }
+</style>

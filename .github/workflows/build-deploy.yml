@@ -1,0 +1,74 @@
+name: Build & Deploy Site
+
+on:
+  # Triggered by data repo dispatch
+  repository_dispatch:
+    types: [data-updated]
+  # Manual trigger
+  workflow_dispatch:
+  # Push to main
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+env:
+  NODE_VERSION: '24'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout site repo
+        uses: actions/checkout@v4
+
+      - name: Checkout data repo
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ github.repository_owner }}/design-insight-data
+          token: ${{ secrets.DATA_REPO_TOKEN }}
+          path: _data
+          sparse-checkout: |
+            data/site
+
+      - name: Copy site data
+        run: |
+          mkdir -p public/data
+          cp _data/data/site/*.json public/data/ 2>/dev/null || echo "No site data yet"
+          rm -rf _data
+          ls -la public/data/
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

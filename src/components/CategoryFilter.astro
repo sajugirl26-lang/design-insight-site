@@ -1,0 +1,82 @@
+---
+interface Props {
+  categories: { id: string; name_ko: string; count: number }[];
+}
+const { categories } = Astro.props;
+const activeCategories = categories.filter(c => c.count > 0);
+---
+
+<div class="category-filter" id="category-filter">
+  <div class="filter-scroll">
+    <button class="filter-btn active" data-category="all">
+      전체
+    </button>
+    {activeCategories.map(cat => (
+      <button class="filter-btn" data-category={cat.id}>
+        {cat.name_ko}
+        <span class="count">{cat.count}</span>
+      </button>
+    ))}
+  </div>
+</div>
+
+<style>
+  .category-filter {
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+  .filter-scroll {
+    display: flex;
+    gap: 0.375rem;
+    overflow-x: auto;
+    padding-bottom: 0.25rem;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .filter-scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter-btn {
+    flex-shrink: 0;
+    background: transparent;
+    border: 1px solid var(--color-border);
+    color: var(--color-text-secondary);
+    padding: 0.4rem 0.875rem;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    font-size: var(--fs-xs);
+    font-weight: 500;
+    font-family: var(--font-sans);
+    transition: all var(--duration) var(--ease);
+    white-space: nowrap;
+  }
+  .filter-btn:hover {
+    border-color: var(--color-accent);
+    color: var(--color-text);
+    background: var(--color-accent-dim);
+  }
+  .filter-btn.active {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: white;
+    font-weight: 600;
+  }
+  .count {
+    font-size: 0.65rem;
+    opacity: 0.6;
+    margin-left: 0.25rem;
+    font-weight: 400;
+  }
+  .filter-btn.active .count {
+    opacity: 0.85;
+  }
+
+  @media (max-width: 768px) {
+    .category-filter {
+      margin-left: -1rem;
+      margin-right: -1rem;
+      padding: 0 1rem;
+    }
+  }
+</style>

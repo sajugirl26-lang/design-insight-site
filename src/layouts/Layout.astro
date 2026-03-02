@@ -1,0 +1,82 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "해외 디자인 유튜버 25명의 인사이트를 한국어로 큐레이션" } = Astro.props;
+const currentPath = Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https://i.ytimg.com data:; connect-src 'self'; frame-src https://www.youtube.com; object-src 'none'; base-uri 'self'" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <title>{title} | Design Insight Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles/global.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a href="/" class="site-title">
+          <span class="logo-mark"></span>
+          Design Insight Hub
+        </a>
+
+        <button class="menu-toggle" id="menu-toggle" aria-label="메뉴 열기">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
+
+        <nav class="main-nav" id="main-nav">
+          <a href="/" class={currentPath === '/' ? 'active' : ''}>타임라인</a>
+          <a href="/overview" class={currentPath === '/overview' ? 'active' : ''}>총정리</a>
+          <a href="/youtubers" class={currentPath === '/youtubers' ? 'active' : ''}>유튜버</a>
+          <a href="/monthly" class={currentPath === '/monthly' ? 'active' : ''}>월간</a>
+          <a href="/ranking" class={currentPath === '/ranking' ? 'active' : ''}>랭킹</a>
+          <a href="/status" class={currentPath === '/status' ? 'active' : ''}>상태</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <p>Design Insight Hub &mdash; 해외 디자인 유튜버 인사이트 큐레이션</p>
+    </footer>
+
+    <script>
+      const toggle = document.getElementById('menu-toggle');
+      const nav = document.getElementById('main-nav');
+      if (toggle && nav) {
+        toggle.addEventListener('click', () => {
+          nav.classList.toggle('open');
+          const isOpen = nav.classList.contains('open');
+          toggle.setAttribute('aria-label', isOpen ? '메뉴 닫기' : '메뉴 열기');
+          toggle.innerHTML = isOpen
+            ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>'
+            : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
+        });
+        // Close mobile nav on link click
+        nav.querySelectorAll('a').forEach(a => {
+          a.addEventListener('click', () => nav.classList.remove('open'));
+        });
+      }
+    </script>
+  </body>
+</html>
