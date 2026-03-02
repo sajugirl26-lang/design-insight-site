@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-03-02T22:15:09.214437",
+  "generated_at": "2026-03-03T01:15:42.314234",
   "categories": [
     {
       "id": "motion_3d",
       "name_ko": "모션 & 3D",
       "description": "모션그래픽, 3D 아트, VFX, 애니메이션",
-      "count": 46
+      "count": 47
     },
     {
       "id": "tools_workflow",
       "name_ko": "도구 & 워크플로우",
       "description": "Figma, 프로토타이핑 도구, 생산성",
-      "count": 41
+      "count": 44
     },
     {
       "id": "tutorial_technique",
@@ -23,7 +23,7 @@
       "id": "ai_design",
       "name_ko": "AI와 디자인",
       "description": "AI 도구 활용, AI 시대 디자인 변화",
-      "count": 25
+      "count": 27
     },
     {
       "id": "career_business",
@@ -35,7 +35,7 @@
       "id": "industry_opinion",
       "name_ko": "업계 비평 & 오피니언",
       "description": "디자인 업계 담론, 비평, 전망",
-      "count": 23
+      "count": 24
     },
     {
       "id": "culture_inspiration",
@@ -59,7 +59,7 @@
       "id": "web_design",
       "name_ko": "웹 디자인 & 개발",
       "description": "웹사이트 디자인, 프론트엔드, 반응형",
-      "count": 8
+      "count": 10
     },
     {
       "id": "ui_visual",

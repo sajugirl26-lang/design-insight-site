@@ -2038,6 +2038,78 @@
         "culture_inspiration"
       ],
       "date": "2026-03-02"
+    },
+    {
+      "id": "-xKgBgGOAqs",
+      "title": "웹 디자인은 예전과 같지 않다",
+      "channel": "Malewicz",
+      "summary": "AI로 속도 아닌 품질을 높이는 웹 디자인 워크플로",
+      "keywords": [
+        "웹 디자인 워크플로",
+        "AI 코딩",
+        "Claude",
+        "로컬 AI 모델",
+        "Git 협업",
+        "Figma 없이",
+        "픽셀 퍼펙션",
+        "slopless design",
+        "프론트엔드 디자이너",
+        "Mac Mini 서버"
+      ],
+      "categories": [
+        "web_design",
+        "ai_design",
+        "tools_workflow"
+      ],
+      "date": "2026-03-03"
+    },
+    {
+      "id": "8527Egp82bA",
+      "title": "Canva의 Cavalry 인수 + 새로운 After Effects 기능 | Motion Mondays",
+      "channel": "School of Motion",
+      "summary": "Canva의 Cavalry 인수 & AE 신기능 4종 공개",
+      "keywords": [
+        "Cavalry",
+        "Canva 인수",
+        "After Effects 베타",
+        "Rive",
+        "Unreal Engine",
+        "가우시안 스플랫",
+        "로토스코핑",
+        "Quixel Mixer",
+        "모션 디자인",
+        "실시간 2D 애니메이션"
+      ],
+      "categories": [
+        "motion_3d",
+        "tools_workflow",
+        "industry_opinion"
+      ],
+      "date": "2026-03-03"
+    },
+    {
+      "id": "krV5wIY2Xhs",
+      "title": "우리는 회사 웹사이트를 바이브 코딩으로 교체했습니다",
+      "channel": "Ran Segall",
+      "summary": "Webflow를 AI 바이브 코딩으로 완전 교체한 실제 사례",
+      "keywords": [
+        "바이브 코딩",
+        "Claude Code",
+        "Webflow 마이그레이션",
+        "Next.js",
+        "Sanity CMS",
+        "AI 웹개발",
+        "노코드",
+        "Vercel",
+        "SEO 마이그레이션",
+        "프로덕션 배포"
+      ],
+      "categories": [
+        "ai_design",
+        "web_design",
+        "tools_workflow"
+      ],
+      "date": "2026-03-03"
     }
   ]
 }

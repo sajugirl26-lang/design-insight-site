@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-02T22:15:09.196118",
+  "generated_at": "2026-03-03T01:15:42.300284",
   "channels": [
     {
       "name": "The Futur",
@@ -17,9 +17,9 @@
       "group": "vision_opinion",
       "subscribers": "~200K+",
       "description": "AI가 디자인에 미치는 구조적 영향 분석, UI 트렌드 비평",
-      "total_videos": 3,
-      "total_insights": 11,
-      "latest_date": "2026-03-02"
+      "total_videos": 4,
+      "total_insights": 16,
+      "latest_date": "2026-03-03"
     },
     {
       "name": "Matthew Encina",
@@ -107,9 +107,9 @@
       "group": "ai_3d_motion",
       "subscribers": "~500K+",
       "description": "모션 디자인 업계 팟캐스트, 대형 스튜디오 파운더 인터뷰",
-      "total_videos": 21,
-      "total_insights": 51,
-      "latest_date": "2026-03-02"
+      "total_videos": 22,
+      "total_insights": 57,
+      "latest_date": "2026-03-03"
     },
     {
       "name": "eyedesyn",
@@ -237,9 +237,9 @@
       "group": "branding_process",
       "subscribers": "~1M",
       "description": "디자인 비즈니스 모델, 프리랜서→스튜디오 전환",
-      "total_videos": 12,
-      "total_insights": 34,
-      "latest_date": "2026-03-02"
+      "total_videos": 13,
+      "total_insights": 39,
+      "latest_date": "2026-03-03"
     },
     {
       "name": "Beeple",
