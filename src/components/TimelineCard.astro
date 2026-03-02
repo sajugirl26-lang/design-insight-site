@@ -71,6 +71,14 @@ const displayDate = date || publishedAt;
     <p class="card-summary">{summaryShortKo}</p>
 
     <div class="card-bottom">
+      <div class="card-state-actions">
+        <button class="btn-bookmark" data-video-id={videoId} title="관심 저장">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg>
+        </button>
+        <button class="btn-read-check" data-video-id={videoId} title="읽음 처리">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+        </button>
+      </div>
       <div class="card-actions">
         <button class="btn-expand" data-target={`modal-${videoId}`}>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
@@ -238,9 +246,67 @@ const displayDate = date || publishedAt;
 
   .card-bottom {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     gap: 0.75rem;
+  }
+
+  .card-state-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .btn-bookmark,
+  .btn-read-check {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    background: none;
+    border: 1px solid transparent;
+    color: var(--color-text-tertiary);
+    cursor: pointer;
+    transition: all var(--duration) var(--ease);
+  }
+  .btn-bookmark:hover {
+    color: var(--color-accent);
+    border-color: var(--color-accent-dim);
+    background: var(--color-accent-dim);
+  }
+  .btn-read-check:hover {
+    color: #10b981;
+    border-color: rgba(16, 185, 129, 0.15);
+    background: rgba(16, 185, 129, 0.08);
+  }
+
+  .btn-bookmark.active {
+    color: var(--color-accent);
+    background: var(--color-accent-dim);
+    border-color: rgba(240, 192, 64, 0.2);
+  }
+  .btn-bookmark.active svg {
+    fill: var(--color-accent);
+  }
+
+  .btn-read-check.active {
+    color: #10b981;
+    background: rgba(16, 185, 129, 0.08);
+    border-color: rgba(16, 185, 129, 0.2);
+  }
+  .btn-read-check.active svg {
+    fill: none;
+    stroke: #10b981;
+    stroke-width: 3;
+  }
+
+  .timeline-card.is-read {
+    opacity: 0.6;
+  }
+  .timeline-card.is-read:hover {
+    opacity: 0.85;
   }
 
   .card-actions {

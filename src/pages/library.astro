@@ -1,0 +1,709 @@
+---
+import Layout from '../layouts/Layout.astro';
+import TimelineCard from '../components/TimelineCard.astro';
+import SearchBar from '../components/SearchBar.astro';
+import { getTimeline } from '../scripts/data';
+
+const timeline = getTimeline();
+const cards = timeline.cards;
+
+// Collect all unique dates and keywords for filters
+const allDates = [...new Set(cards.map((c: any) => c.date || c.published_at))].sort().reverse();
+const allKeywords = [...new Set(cards.flatMap((c: any) => c.keywords || []))].sort();
+---
+
+<Layout title="라이브러리">
+  <section class="library-section">
+    <div class="page-header">
+      <h1 class="section-title">라이브러리</h1>
+      <p class="section-subtitle">전체 {cards.length}개 카드 — 관심 저장·읽음 관리</p>
+    </div>
+
+    <!-- Filter Tabs -->
+    <div class="lib-tabs">
+      <button class="lib-tab active" data-filter="all">전체 <span class="tab-count" id="count-all">{cards.length}</span></button>
+      <button class="lib-tab" data-filter="bookmarked">관심 <span class="tab-count" id="count-bookmarked">0</span></button>
+      <button class="lib-tab" data-filter="read">읽음 <span class="tab-count" id="count-read">0</span></button>
+      <button class="lib-tab" data-filter="unread">안읽음 <span class="tab-count" id="count-unread">{cards.length}</span></button>
+    </div>
+
+    <!-- Controls Row -->
+    <div class="lib-controls">
+      <div class="lib-search">
+        <div class="search-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </div>
+        <input type="text" id="lib-search-input" placeholder="키워드 검색..." autocomplete="off" />
+      </div>
+
+      <div class="lib-date-filter">
+        <label>기간</label>
+        <input type="date" id="date-from" />
+        <span class="date-sep">~</span>
+        <input type="date" id="date-to" />
+        <button class="btn-date-clear" id="date-clear" title="기간 초기화">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Keyword Chips -->
+    <div class="lib-keyword-chips" id="keyword-chips">
+      {allKeywords.slice(0, 30).map((kw: string) => (
+        <button class="keyword-chip" data-keyword={kw}>{kw}</button>
+      ))}
+      {allKeywords.length > 30 && (
+        <button class="keyword-chip more-chip" id="show-more-keywords">+{allKeywords.length - 30}개 더보기</button>
+      )}
+    </div>
+
+    <!-- Active Filters -->
+    <div class="active-filters" id="active-filters" style="display:none">
+      <span class="active-label">필터:</span>
+      <div id="active-filter-tags"></div>
+      <button class="btn-clear-all" id="clear-all-filters">전체 초기화</button>
+    </div>
+
+    <!-- Results Info -->
+    <div class="lib-results-info">
+      <span id="results-count">{cards.length}개 카드</span>
+      <div class="sort-control">
+        <select id="sort-select">
+          <option value="newest">최신순</option>
+          <option value="oldest">오래된순</option>
+          <option value="insights">인사이트 많은순</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="library-grid" id="library-grid">
+      {cards.map(card => (
+        <TimelineCard
+          videoId={card.video_id}
+          channel={card.channel}
+          channelGroup={card.channel_group}
+          titleKo={card.title_ko}
+          summaryShortKo={card.summary_short_ko}
+          summaryKo={card.summary_ko}
+          categories={card.categories}
+          keywords={card.keywords}
+          insights={card.insights}
+          youtubeUrl={card.youtube_url}
+          publishedAt={card.published_at}
+          date={card.date}
+        />
+      ))}
+    </div>
+
+    <div class="empty-lib" id="empty-lib" style="display:none">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color: var(--color-text-tertiary); margin-bottom: 1rem;">
+        <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+      </svg>
+      <p>필터 조건에 맞는 카드가 없습니다.</p>
+    </div>
+  </section>
+
+  <!-- Hidden data for JS -->
+  <script define:vars={{ allKeywords }}>
+    window.__allKeywords = allKeywords;
+  </script>
+</Layout>
+
+<script>
+  import { initCardStateButtons, getAllStates } from '../scripts/cardState';
+
+  // Init bookmark/read buttons
+  initCardStateButtons();
+
+  // Modal open/close (same as index)
+  document.querySelectorAll('.btn-expand').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = (btn as HTMLElement).dataset.target;
+      if (targetId) {
+        document.getElementById(targetId)?.classList.add('active');
+        document.body.classList.add('modal-open');
+      }
+    });
+  });
+  document.querySelectorAll('.modal-close').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const closeId = (btn as HTMLElement).dataset.close;
+      if (closeId) {
+        document.getElementById(closeId)?.classList.remove('active');
+        document.body.classList.remove('modal-open');
+      }
+    });
+  });
+  document.querySelectorAll('.modal-backdrop').forEach(backdrop => {
+    backdrop.addEventListener('click', () => {
+      backdrop.closest('.card-modal')?.classList.remove('active');
+      document.body.classList.remove('modal-open');
+    });
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.card-modal.active').forEach(m => m.classList.remove('active'));
+      document.body.classList.remove('modal-open');
+    }
+  });
+
+  // === Library Filter Logic ===
+  type FilterMode = 'all' | 'bookmarked' | 'read' | 'unread';
+  let currentFilter: FilterMode = 'all';
+  let currentSearch = '';
+  let currentDateFrom = '';
+  let currentDateTo = '';
+  let activeKeywords: Set<string> = new Set();
+  let currentSort = 'newest';
+
+  const grid = document.getElementById('library-grid')!;
+  const emptyLib = document.getElementById('empty-lib')!;
+  const resultsCount = document.getElementById('results-count')!;
+  const activeFiltersBar = document.getElementById('active-filters')!;
+  const activeFilterTags = document.getElementById('active-filter-tags')!;
+
+  function getCardDate(card: Element): string {
+    const dateEl = card.querySelector('.card-date');
+    return dateEl?.textContent?.trim() || '';
+  }
+
+  function getCardKeywords(card: Element): string[] {
+    const modalKeywords = card.querySelectorAll('.keywords-list .tag');
+    const kws: string[] = [];
+    modalKeywords.forEach(t => kws.push(t.textContent?.trim() || ''));
+    // Also gather insight keywords
+    card.querySelectorAll('.insight-keywords .tag').forEach(t => kws.push(t.textContent?.trim() || ''));
+    return kws;
+  }
+
+  function getCardInsightCount(card: Element): number {
+    const badge = card.querySelector('.insight-badge');
+    const m = badge?.textContent?.match(/(\d+)/);
+    return m ? parseInt(m[1]) : 0;
+  }
+
+  function updateCounts() {
+    const states = getAllStates();
+    const allCards = grid.querySelectorAll('.timeline-card');
+    let bookmarked = 0, read = 0, unread = 0;
+    allCards.forEach(card => {
+      const vid = (card as HTMLElement).dataset.videoId || '';
+      if (states[vid]?.bookmarked) bookmarked++;
+      if (states[vid]?.read) read++;
+      else unread++;
+    });
+    document.getElementById('count-all')!.textContent = String(allCards.length);
+    document.getElementById('count-bookmarked')!.textContent = String(bookmarked);
+    document.getElementById('count-read')!.textContent = String(read);
+    document.getElementById('count-unread')!.textContent = String(unread);
+  }
+
+  function applyFilters() {
+    const states = getAllStates();
+    const cards = Array.from(grid.querySelectorAll('.timeline-card'));
+    let visibleCount = 0;
+
+    cards.forEach(card => {
+      const el = card as HTMLElement;
+      const vid = el.dataset.videoId || '';
+      const state = states[vid] || {};
+      let show = true;
+
+      // Tab filter
+      if (currentFilter === 'bookmarked' && !state.bookmarked) show = false;
+      if (currentFilter === 'read' && !state.read) show = false;
+      if (currentFilter === 'unread' && state.read) show = false;
+
+      // Search filter
+      if (show && currentSearch) {
+        const text = card.textContent?.toLowerCase() || '';
+        if (!text.includes(currentSearch)) show = false;
+      }
+
+      // Date range filter
+      if (show && (currentDateFrom || currentDateTo)) {
+        const cardDate = getCardDate(card);
+        if (currentDateFrom && cardDate < currentDateFrom) show = false;
+        if (currentDateTo && cardDate > currentDateTo) show = false;
+      }
+
+      // Keyword filter
+      if (show && activeKeywords.size > 0) {
+        const cardKws = getCardKeywords(card);
+        const hasMatch = [...activeKeywords].some(kw => cardKws.includes(kw));
+        if (!hasMatch) show = false;
+      }
+
+      el.style.display = show ? '' : 'none';
+      if (show) visibleCount++;
+    });
+
+    // Sort visible cards
+    const visibleCards = cards.filter(c => (c as HTMLElement).style.display !== 'none');
+    if (currentSort === 'oldest') {
+      visibleCards.sort((a, b) => getCardDate(a).localeCompare(getCardDate(b)));
+    } else if (currentSort === 'insights') {
+      visibleCards.sort((a, b) => getCardInsightCount(b) - getCardInsightCount(a));
+    } else {
+      visibleCards.sort((a, b) => getCardDate(b).localeCompare(getCardDate(a)));
+    }
+    visibleCards.forEach(card => grid.appendChild(card));
+
+    resultsCount.textContent = `${visibleCount}개 카드`;
+    emptyLib.style.display = visibleCount === 0 ? '' : 'none';
+    grid.style.display = visibleCount === 0 ? 'none' : '';
+
+    updateActiveFiltersBar();
+    updateCounts();
+  }
+
+  function updateActiveFiltersBar() {
+    const hasFilters = currentSearch || currentDateFrom || currentDateTo || activeKeywords.size > 0;
+    activeFiltersBar.style.display = hasFilters ? '' : 'none';
+    activeFilterTags.innerHTML = '';
+
+    if (currentSearch) {
+      addFilterTag(`검색: "${currentSearch}"`, () => {
+        currentSearch = '';
+        (document.getElementById('lib-search-input') as HTMLInputElement).value = '';
+        applyFilters();
+      });
+    }
+    if (currentDateFrom || currentDateTo) {
+      const label = `${currentDateFrom || '...'} ~ ${currentDateTo || '...'}`;
+      addFilterTag(`기간: ${label}`, () => {
+        currentDateFrom = '';
+        currentDateTo = '';
+        (document.getElementById('date-from') as HTMLInputElement).value = '';
+        (document.getElementById('date-to') as HTMLInputElement).value = '';
+        applyFilters();
+      });
+    }
+    activeKeywords.forEach(kw => {
+      addFilterTag(kw, () => {
+        activeKeywords.delete(kw);
+        document.querySelector(`.keyword-chip[data-keyword="${CSS.escape(kw)}"]`)?.classList.remove('active');
+        applyFilters();
+      });
+    });
+  }
+
+  function addFilterTag(label: string, onRemove: () => void) {
+    const tag = document.createElement('span');
+    tag.className = 'filter-tag';
+    tag.innerHTML = `${label} <button>&times;</button>`;
+    tag.querySelector('button')!.addEventListener('click', onRemove);
+    activeFilterTags.appendChild(tag);
+  }
+
+  // Tab clicks
+  document.querySelectorAll('.lib-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.lib-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      currentFilter = (tab as HTMLElement).dataset.filter as FilterMode;
+      applyFilters();
+    });
+  });
+
+  // Search
+  const searchInput = document.getElementById('lib-search-input') as HTMLInputElement;
+  let searchTimeout: number;
+  searchInput?.addEventListener('input', () => {
+    clearTimeout(searchTimeout);
+    searchTimeout = window.setTimeout(() => {
+      currentSearch = searchInput.value.toLowerCase().trim();
+      applyFilters();
+    }, 200);
+  });
+
+  // Date range
+  document.getElementById('date-from')?.addEventListener('change', (e) => {
+    currentDateFrom = (e.target as HTMLInputElement).value;
+    applyFilters();
+  });
+  document.getElementById('date-to')?.addEventListener('change', (e) => {
+    currentDateTo = (e.target as HTMLInputElement).value;
+    applyFilters();
+  });
+  document.getElementById('date-clear')?.addEventListener('click', () => {
+    currentDateFrom = '';
+    currentDateTo = '';
+    (document.getElementById('date-from') as HTMLInputElement).value = '';
+    (document.getElementById('date-to') as HTMLInputElement).value = '';
+    applyFilters();
+  });
+
+  // Keyword chips
+  document.querySelectorAll('.keyword-chip:not(.more-chip)').forEach(chip => {
+    chip.addEventListener('click', () => {
+      const kw = (chip as HTMLElement).dataset.keyword || '';
+      if (activeKeywords.has(kw)) {
+        activeKeywords.delete(kw);
+        chip.classList.remove('active');
+      } else {
+        activeKeywords.add(kw);
+        chip.classList.add('active');
+      }
+      applyFilters();
+    });
+  });
+
+  // Show more keywords
+  document.getElementById('show-more-keywords')?.addEventListener('click', () => {
+    const container = document.getElementById('keyword-chips')!;
+    const allKws = (window as any).__allKeywords as string[];
+    container.innerHTML = '';
+    allKws.forEach(kw => {
+      const chip = document.createElement('button');
+      chip.className = 'keyword-chip' + (activeKeywords.has(kw) ? ' active' : '');
+      chip.dataset.keyword = kw;
+      chip.textContent = kw;
+      chip.addEventListener('click', () => {
+        if (activeKeywords.has(kw)) {
+          activeKeywords.delete(kw);
+          chip.classList.remove('active');
+        } else {
+          activeKeywords.add(kw);
+          chip.classList.add('active');
+        }
+        applyFilters();
+      });
+      container.appendChild(chip);
+    });
+  });
+
+  // Sort
+  document.getElementById('sort-select')?.addEventListener('change', (e) => {
+    currentSort = (e.target as HTMLSelectElement).value;
+    applyFilters();
+  });
+
+  // Clear all filters
+  document.getElementById('clear-all-filters')?.addEventListener('click', () => {
+    currentSearch = '';
+    currentDateFrom = '';
+    currentDateTo = '';
+    activeKeywords.clear();
+    searchInput.value = '';
+    (document.getElementById('date-from') as HTMLInputElement).value = '';
+    (document.getElementById('date-to') as HTMLInputElement).value = '';
+    document.querySelectorAll('.keyword-chip.active').forEach(c => c.classList.remove('active'));
+    applyFilters();
+  });
+
+  // Re-apply on bookmark/read state change (so counts update)
+  const observer = new MutationObserver(() => updateCounts());
+  document.querySelectorAll('.btn-bookmark, .btn-read-check').forEach(btn => {
+    observer.observe(btn, { attributes: true, attributeFilter: ['class'] });
+  });
+
+  // Initial counts
+  updateCounts();
+</script>
+
+<style>
+  .library-section {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .page-header {
+    margin-bottom: 1.5rem;
+  }
+
+  /* Tabs */
+  .lib-tabs {
+    display: flex;
+    gap: 0.25rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 0;
+  }
+  .lib-tab {
+    font-family: var(--font-label);
+    font-size: var(--fs-small);
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    background: none;
+    border: none;
+    padding: 0.5rem 0.875rem;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: all var(--duration) var(--ease);
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+  }
+  .lib-tab:hover {
+    color: var(--color-text);
+  }
+  .lib-tab.active {
+    color: var(--color-accent);
+    border-bottom-color: var(--color-accent);
+  }
+  .tab-count {
+    font-size: var(--fs-xs);
+    background: var(--color-surface);
+    padding: 0.05rem 0.375rem;
+    border-radius: 4px;
+    font-weight: 600;
+  }
+  .lib-tab.active .tab-count {
+    background: var(--color-accent-dim);
+    color: var(--color-accent);
+  }
+
+  /* Controls */
+  .lib-controls {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .lib-search {
+    position: relative;
+    flex: 1;
+    min-width: 200px;
+  }
+  .lib-search .search-icon {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-text-tertiary);
+    display: flex;
+    pointer-events: none;
+  }
+  #lib-search-input {
+    width: 100%;
+    padding: 0.5rem 0.875rem 0.5rem 2.25rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    color: var(--color-text);
+    font-size: var(--fs-small);
+    font-family: var(--font-sans);
+    outline: none;
+    transition: all var(--duration) var(--ease);
+  }
+  #lib-search-input:focus {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 2px var(--color-accent-dim);
+  }
+
+  .lib-date-filter {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-family: var(--font-label);
+    font-size: var(--fs-xs);
+    color: var(--color-text-secondary);
+  }
+  .lib-date-filter label {
+    font-weight: 600;
+    margin-right: 0.125rem;
+  }
+  .lib-date-filter input[type="date"] {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-size: var(--fs-xs);
+    padding: 0.375rem 0.5rem;
+    outline: none;
+    max-width: 130px;
+  }
+  .lib-date-filter input[type="date"]:focus {
+    border-color: var(--color-accent);
+  }
+  .date-sep {
+    color: var(--color-text-tertiary);
+  }
+  .btn-date-clear {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    background: none;
+    border: 1px solid var(--color-border);
+    color: var(--color-text-tertiary);
+    cursor: pointer;
+    transition: all var(--duration) var(--ease);
+  }
+  .btn-date-clear:hover {
+    border-color: #ff4444;
+    color: #ff4444;
+  }
+
+  /* Keyword Chips */
+  .lib-keyword-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    margin-bottom: 0.75rem;
+    max-height: 4.5rem;
+    overflow: hidden;
+  }
+  .lib-keyword-chips.expanded {
+    max-height: none;
+  }
+  .keyword-chip {
+    font-family: var(--font-label);
+    font-size: var(--fs-xs);
+    padding: 0.2rem 0.5rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    transition: all var(--duration) var(--ease);
+    white-space: nowrap;
+  }
+  .keyword-chip:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+  .keyword-chip.active {
+    background: var(--color-accent-dim);
+    border-color: rgba(240, 192, 64, 0.3);
+    color: var(--color-accent);
+  }
+  .more-chip {
+    background: var(--color-accent-dim);
+    color: var(--color-accent);
+    border-color: transparent;
+  }
+
+  /* Active Filters */
+  .active-filters {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    padding: 0.5rem 0.75rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    margin-bottom: 0.75rem;
+  }
+  .active-label {
+    font-family: var(--font-label);
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    color: var(--color-text-tertiary);
+  }
+  :global(.filter-tag) {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-family: var(--font-label);
+    font-size: var(--fs-xs);
+    padding: 0.15rem 0.375rem;
+    background: var(--color-accent-dim);
+    color: var(--color-accent);
+    border-radius: 4px;
+  }
+  :global(.filter-tag button) {
+    background: none;
+    border: none;
+    color: var(--color-accent);
+    cursor: pointer;
+    font-size: 0.875rem;
+    line-height: 1;
+    padding: 0;
+    opacity: 0.7;
+  }
+  :global(.filter-tag button:hover) {
+    opacity: 1;
+  }
+  .btn-clear-all {
+    font-family: var(--font-label);
+    font-size: var(--fs-xs);
+    background: none;
+    border: none;
+    color: var(--color-text-tertiary);
+    cursor: pointer;
+    margin-left: auto;
+    text-decoration: underline;
+  }
+  .btn-clear-all:hover {
+    color: var(--color-text);
+  }
+
+  /* Results Info */
+  .lib-results-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    font-family: var(--font-label);
+    font-size: var(--fs-xs);
+    color: var(--color-text-tertiary);
+  }
+  .sort-control select {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    color: var(--color-text-secondary);
+    font-family: var(--font-label);
+    font-size: var(--fs-xs);
+    padding: 0.25rem 0.5rem;
+    outline: none;
+    cursor: pointer;
+  }
+
+  /* Grid */
+  .library-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.875rem;
+  }
+
+  .empty-lib {
+    text-align: center;
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .empty-lib p {
+    color: var(--color-text-secondary);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .lib-controls {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .lib-search {
+      width: 100%;
+    }
+    .lib-date-filter {
+      width: 100%;
+      flex-wrap: wrap;
+    }
+    .lib-date-filter input[type="date"] {
+      flex: 1;
+    }
+    .library-grid {
+      grid-template-columns: 1fr;
+    }
+    .lib-tabs {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    #lib-search-input {
+      font-size: 16px;
+    }
+  }
+</style>

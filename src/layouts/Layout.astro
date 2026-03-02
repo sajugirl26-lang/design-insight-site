@@ -42,6 +42,7 @@ const currentPath = Astro.url.pathname.replace(base, '') || '/';
 
         <nav class="main-nav" id="main-nav">
           <a href={`${base}/`} class={currentPath === '/' ? 'active' : ''}>타임라인</a>
+          <a href={`${base}/library`} class={currentPath.startsWith('/library') ? 'active' : ''}>라이브러리</a>
           <a href={`${base}/overview`} class={currentPath.startsWith('/overview') ? 'active' : ''}>총정리</a>
           <a href={`${base}/youtubers`} class={currentPath.startsWith('/youtubers') ? 'active' : ''}>유튜버</a>
           <a href={`${base}/monthly`} class={currentPath.startsWith('/monthly') ? 'active' : ''}>월간</a>

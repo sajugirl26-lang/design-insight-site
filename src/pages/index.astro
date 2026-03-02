@@ -78,6 +78,9 @@ const uniqueChannels = new Set(cards.map((c: any) => c.channel)).size;
 </Layout>
 
 <script>
+  import { initCardStateButtons } from '../scripts/cardState';
+  initCardStateButtons();
+
   // Modal open/close
   document.querySelectorAll('.btn-expand').forEach(btn => {
     btn.addEventListener('click', () => {
