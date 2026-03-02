@@ -1,5 +1,12 @@
 /* Design Insight Hub — Nano-Banana Dark Theme */
 
+/* Pretendard Local Font */
+@font-face { font-family: 'Pretendard'; font-weight: 400; font-display: swap; src: local('Pretendard Regular'), url('/fonts/Pretendard-Regular.woff2') format('woff2'); }
+@font-face { font-family: 'Pretendard'; font-weight: 500; font-display: swap; src: local('Pretendard Medium'), url('/fonts/Pretendard-Medium.woff2') format('woff2'); }
+@font-face { font-family: 'Pretendard'; font-weight: 600; font-display: swap; src: local('Pretendard SemiBold'), url('/fonts/Pretendard-SemiBold.woff2') format('woff2'); }
+@font-face { font-family: 'Pretendard'; font-weight: 700; font-display: swap; src: local('Pretendard Bold'), url('/fonts/Pretendard-Bold.woff2') format('woff2'); }
+@font-face { font-family: 'Pretendard'; font-weight: 800; font-display: swap; src: local('Pretendard ExtraBold'), url('/fonts/Pretendard-ExtraBold.woff2') format('woff2'); }
+
 :root {
   /* Colors — nano-banana dark palette */
   --color-bg: #0a0a0a;
@@ -23,8 +30,8 @@
 
   /* Typography */
   --font-sans: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-  --font-label: 'DM Sans', var(--font-sans);
-  --font-stat: 'Instrument Serif', Georgia, serif;
+  --font-label: var(--font-sans);
+  --font-stat: var(--font-sans);
   --font-mono: 'JetBrains Mono', monospace;
   --fs-hero: clamp(2rem, 5vw, 3rem);
   --fs-h1: clamp(1.4rem, 3vw, 1.875rem);
