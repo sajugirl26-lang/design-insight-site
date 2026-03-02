@@ -5,7 +5,8 @@ interface Props {
 }
 
 const { title, description = "해외 디자인 유튜버 25명의 인사이트를 한국어로 큐레이션" } = Astro.props;
-const currentPath = Astro.url.pathname;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const currentPath = Astro.url.pathname.replace(base, '') || '/';
 ---
 
 <!doctype html>
@@ -28,7 +29,7 @@ const currentPath = Astro.url.pathname;
   <body>
     <header class="site-header">
       <div class="header-inner">
-        <a href="/" class="site-title">
+        <a href={`${base}/`} class="site-title">
           <span class="logo-mark"></span>
           Design Insight Hub
         </a>
@@ -42,12 +43,12 @@ const currentPath = Astro.url.pathname;
         </button>
 
         <nav class="main-nav" id="main-nav">
-          <a href="/" class={currentPath === '/' ? 'active' : ''}>타임라인</a>
-          <a href="/overview" class={currentPath === '/overview' ? 'active' : ''}>총정리</a>
-          <a href="/youtubers" class={currentPath === '/youtubers' ? 'active' : ''}>유튜버</a>
-          <a href="/monthly" class={currentPath === '/monthly' ? 'active' : ''}>월간</a>
-          <a href="/ranking" class={currentPath === '/ranking' ? 'active' : ''}>랭킹</a>
-          <a href="/status" class={currentPath === '/status' ? 'active' : ''}>상태</a>
+          <a href={`${base}/`} class={currentPath === '/' ? 'active' : ''}>타임라인</a>
+          <a href={`${base}/overview`} class={currentPath.startsWith('/overview') ? 'active' : ''}>총정리</a>
+          <a href={`${base}/youtubers`} class={currentPath.startsWith('/youtubers') ? 'active' : ''}>유튜버</a>
+          <a href={`${base}/monthly`} class={currentPath.startsWith('/monthly') ? 'active' : ''}>월간</a>
+          <a href={`${base}/ranking`} class={currentPath.startsWith('/ranking') ? 'active' : ''}>랭킹</a>
+          <a href={`${base}/status`} class={currentPath.startsWith('/status') ? 'active' : ''}>상태</a>
         </nav>
       </div>
     </header>

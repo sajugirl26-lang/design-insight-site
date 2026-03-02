@@ -25,11 +25,14 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      HAS_DATA_TOKEN: ${{ secrets.DATA_REPO_TOKEN != '' }}
     steps:
       - name: Checkout site repo
         uses: actions/checkout@v4
 
       - name: Checkout data repo
+        if: env.HAS_DATA_TOKEN == 'true'
         uses: actions/checkout@v4
         with:
           repository: ${{ github.repository_owner }}/design-insight-data
@@ -38,12 +41,15 @@ jobs:
           sparse-checkout: |
             data/site
 
-      - name: Copy site data
+      - name: Copy site data from data repo
+        if: env.HAS_DATA_TOKEN == 'true'
         run: |
           mkdir -p public/data
-          cp _data/data/site/*.json public/data/ 2>/dev/null || echo "No site data yet"
+          cp _data/data/site/*.json public/data/ 2>/dev/null || echo "No site data from data repo"
           rm -rf _data
-          ls -la public/data/
+
+      - name: Verify site data
+        run: ls -la public/data/
 
       - name: Setup Node
         uses: actions/setup-node@v4
