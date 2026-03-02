@@ -1,4 +1,4 @@
-/* Design Insight Hub — Nano-Banana Dark Theme */
+/* Design Insight Hub — Light Theme */
 
 /* Pretendard Local Font */
 @font-face { font-family: 'Pretendard'; font-weight: 400; font-display: swap; src: local('Pretendard Regular'), url('/fonts/Pretendard-Regular.woff2') format('woff2'); }
@@ -8,25 +8,25 @@
 @font-face { font-family: 'Pretendard'; font-weight: 800; font-display: swap; src: local('Pretendard ExtraBold'), url('/fonts/Pretendard-ExtraBold.woff2') format('woff2'); }
 
 :root {
-  /* Colors — nano-banana dark palette */
-  --color-bg: #0a0a0a;
-  --color-surface: #1a1a1a;
-  --color-surface-hover: #222222;
-  --color-surface-raised: #252525;
-  --color-border: #333;
-  --color-border-subtle: #2a2a2a;
-  --color-text: #e0e0e0;
-  --color-text-secondary: #999;
-  --color-text-tertiary: #666;
-  --color-accent: #f0c040;
-  --color-accent-hover: #f5d060;
-  --color-accent-dim: rgba(240, 192, 64, 0.1);
-  --color-blue: #7eb8f7;
-  --color-tag-bg: rgba(240, 192, 64, 0.08);
-  --color-tag-text: #f0c040;
-  --color-gold: #f0c040;
-  --color-silver: #c0c0cc;
-  --color-bronze: #cd7f32;
+  /* Colors — light palette */
+  --color-bg: #f8f8f8;
+  --color-surface: #ffffff;
+  --color-surface-hover: #f0f0f0;
+  --color-surface-raised: #ffffff;
+  --color-border: #e0e0e0;
+  --color-border-subtle: #eaeaea;
+  --color-text: #1a1a1a;
+  --color-text-secondary: #555;
+  --color-text-tertiary: #999;
+  --color-accent: #d4a020;
+  --color-accent-hover: #c08e10;
+  --color-accent-dim: rgba(212, 160, 32, 0.08);
+  --color-blue: #3b82f6;
+  --color-tag-bg: rgba(212, 160, 32, 0.07);
+  --color-tag-text: #b08a10;
+  --color-gold: #d4a020;
+  --color-silver: #888;
+  --color-bronze: #b06820;
 
   /* Typography */
   --font-sans: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
@@ -57,9 +57,9 @@
   --duration: 0.2s;
 
   /* Shadows */
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
-  --shadow-md: 0 4px 12px rgba(0,0,0,0.5);
-  --shadow-lg: 0 8px 30px rgba(0,0,0,0.6);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 30px rgba(0,0,0,0.12);
 }
 
 /* Reset */
@@ -107,7 +107,7 @@ button { font-family: inherit; }
   top: 0;
   z-index: 100;
   height: var(--header-height);
-  background: rgba(10, 10, 10, 0.88);
+  background: rgba(248, 248, 248, 0.9);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--color-border);
@@ -246,7 +246,7 @@ main {
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: #555; }
+::-webkit-scrollbar-thumb:hover { background: #bbb; }
 
 /* ==================== Responsive ==================== */
 @media (max-width: 768px) {
@@ -273,7 +273,7 @@ main {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(10, 10, 10, 0.96);
+    background: rgba(248, 248, 248, 0.98);
     backdrop-filter: blur(16px);
     flex-direction: column;
     padding: 1.5rem;

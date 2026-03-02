@@ -30,11 +30,11 @@ const {
 } = Astro.props;
 
 const groupColors: Record<string, string> = {
-  vision_opinion: '#f0c040',
-  ai_3d_motion: '#7eb8f7',
-  media_art: '#f06292',
-  studio_business: '#4ecdc4',
-  branding_process: '#b39ddb',
+  vision_opinion: '#c08e10',
+  ai_3d_motion: '#2563eb',
+  media_art: '#d63384',
+  studio_business: '#0d9488',
+  branding_process: '#7c3aed',
 };
 
 const stanceLabels: Record<string, string> = {
@@ -60,10 +60,10 @@ const displayDate = date || publishedAt;
   <!-- Bookmark / Read buttons — top right -->
   <div class="card-state-actions">
     <button class="btn-bookmark" data-video-id={videoId} title="관심 저장">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg>
     </button>
     <button class="btn-read-check" data-video-id={videoId} title="읽음 처리">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
     </button>
   </div>
 
@@ -185,8 +185,8 @@ const displayDate = date || publishedAt;
                 box-shadow var(--duration) var(--ease);
   }
   .timeline-card:hover {
-    border-color: #444;
-    box-shadow: var(--shadow-sm);
+    border-color: #ccc;
+    box-shadow: var(--shadow-md);
   }
 
   .card-accent {
@@ -258,44 +258,44 @@ const displayDate = date || publishedAt;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 34px;
-    height: 34px;
-    border-radius: 6px;
-    background: rgba(10, 10, 10, 0.6);
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(4px);
-    border: 1px solid transparent;
+    border: 1px solid var(--color-border);
     color: var(--color-text-tertiary);
     cursor: pointer;
     transition: all var(--duration) var(--ease);
   }
   .btn-bookmark:hover {
     color: var(--color-accent);
-    border-color: var(--color-accent-dim);
-    background: var(--color-accent-dim);
+    border-color: rgba(212, 160, 32, 0.3);
+    background: rgba(212, 160, 32, 0.08);
   }
   .btn-read-check:hover {
-    color: #10b981;
-    border-color: rgba(16, 185, 129, 0.15);
-    background: rgba(16, 185, 129, 0.08);
+    color: #059669;
+    border-color: rgba(5, 150, 105, 0.2);
+    background: rgba(5, 150, 105, 0.06);
   }
 
   .btn-bookmark.active {
     color: var(--color-accent);
-    background: var(--color-accent-dim);
-    border-color: rgba(240, 192, 64, 0.2);
+    background: rgba(212, 160, 32, 0.12);
+    border-color: rgba(212, 160, 32, 0.3);
   }
   .btn-bookmark.active svg {
     fill: var(--color-accent);
   }
 
   .btn-read-check.active {
-    color: #10b981;
-    background: rgba(16, 185, 129, 0.08);
-    border-color: rgba(16, 185, 129, 0.2);
+    color: #059669;
+    background: rgba(5, 150, 105, 0.08);
+    border-color: rgba(5, 150, 105, 0.25);
   }
   .btn-read-check.active svg {
     fill: none;
-    stroke: #10b981;
+    stroke: #059669;
     stroke-width: 3;
   }
 
@@ -320,13 +320,13 @@ const displayDate = date || publishedAt;
     flex-shrink: 0;
   }
 
-  .btn-expand {
+  .btn-expand,
+  .btn-youtube {
     display: inline-flex;
     align-items: center;
     gap: 0.375rem;
     background: var(--color-surface);
     border: 1px solid var(--color-border);
-    color: var(--color-accent);
     padding: 0.4rem 0.875rem;
     border-radius: 6px;
     cursor: pointer;
@@ -334,31 +334,23 @@ const displayDate = date || publishedAt;
     font-size: var(--fs-xs);
     font-weight: 600;
     transition: all var(--duration) var(--ease);
+    text-decoration: none;
+  }
+  .btn-expand {
+    color: var(--color-accent);
   }
   .btn-expand:hover {
     background: var(--color-accent);
     border-color: var(--color-accent);
-    color: #0a0a0a;
+    color: #fff;
   }
-
   .btn-youtube {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.375rem;
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
     color: var(--color-text-secondary);
-    padding: 0.375rem 0.75rem;
-    border-radius: 6px;
-    font-family: var(--font-label);
-    font-size: var(--fs-xs);
-    font-weight: 600;
-    transition: all var(--duration) var(--ease);
   }
   .btn-youtube:hover {
-    background: rgba(255, 0, 0, 0.08);
+    background: rgba(255, 0, 0, 0.06);
     border-color: rgba(255, 68, 68, 0.3);
-    color: #ff4444;
+    color: #e53935;
   }
 
   /* ==================== Modal ==================== */
@@ -380,7 +372,7 @@ const displayDate = date || publishedAt;
   .modal-backdrop {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(4px);
   }
 
@@ -469,8 +461,8 @@ const displayDate = date || publishedAt;
     transition: all var(--duration) var(--ease);
   }
   .yt-link:hover {
-    border-color: #ff4444;
-    color: #ff4444;
+    border-color: #e53935;
+    color: #e53935;
   }
 
   .divider {
@@ -564,13 +556,13 @@ const displayDate = date || publishedAt;
     font-weight: 600;
     letter-spacing: 0.02em;
   }
-  .stance-positive { background: #064e3b; color: #6ee7b7; }
-  .stance-negative { background: #7f1d1d; color: #fca5a5; }
-  .stance-neutral { background: #2a2a2a; color: #999; }
-  .stance-mixed { background: #3b1d6e; color: #c4b5fd; }
-  .novelty-high { background: #5c3d10; color: #fde68a; }
-  .novelty-medium { background: #1a3152; color: #93c5fd; }
-  .novelty-low { background: #2a2a2a; color: #888; }
+  .stance-positive { background: #dcfce7; color: #166534; }
+  .stance-negative { background: #fde2e2; color: #991b1b; }
+  .stance-neutral { background: #f0f0f0; color: #666; }
+  .stance-mixed { background: #ede9fe; color: #5b21b6; }
+  .novelty-high { background: #fef3c7; color: #92400e; }
+  .novelty-medium { background: #dbeafe; color: #1e40af; }
+  .novelty-low { background: #f0f0f0; color: #888; }
 
   .insight-text {
     font-size: var(--fs-small);
@@ -583,8 +575,8 @@ const displayDate = date || publishedAt;
     align-items: flex-start;
     gap: 0.5rem;
     font-size: var(--fs-small);
-    color: #6ee7b7;
-    background: rgba(6, 78, 59, 0.2);
+    color: #166534;
+    background: #f0fdf4;
     padding: 0.5rem 0.75rem;
     border-radius: var(--radius);
     margin-bottom: 0.5rem;
@@ -619,8 +611,8 @@ const displayDate = date || publishedAt;
     }
     .btn-bookmark,
     .btn-read-check {
-      width: 32px;
-      height: 32px;
+      width: 34px;
+      height: 34px;
     }
     .card-title {
       padding-right: 4rem;

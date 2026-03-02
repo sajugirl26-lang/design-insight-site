@@ -5,11 +5,11 @@ import { getChannels } from '../scripts/data';
 const { channels, groups } = getChannels();
 
 const groupColors: Record<string, string> = {
-  vision_opinion: '#f0c040',
-  ai_3d_motion: '#7eb8f7',
-  media_art: '#f06292',
-  studio_business: '#4ecdc4',
-  branding_process: '#b39ddb',
+  vision_opinion: '#c08e10',
+  ai_3d_motion: '#2563eb',
+  media_art: '#d63384',
+  studio_business: '#0d9488',
+  branding_process: '#7c3aed',
 };
 
 // Group channels
@@ -161,7 +161,7 @@ const totalActive = channels.filter((ch: any) => ch.total_videos > 0).length;
     height: 36px;
     border-radius: 6px;
     background: var(--group-color, var(--color-accent-dim));
-    color: #0a0a0a;
+    color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
