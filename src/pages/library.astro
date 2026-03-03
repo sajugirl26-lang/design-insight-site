@@ -311,11 +311,17 @@ const allKeywords = [...new Set(cards.flatMap((c: any) => c.keywords || []))].so
 
   // Search
   const searchInput = document.getElementById('lib-search-input') as HTMLInputElement;
+  const SEARCH_MAX_LEN = 200;
   let searchTimeout: number;
   searchInput?.addEventListener('input', () => {
     clearTimeout(searchTimeout);
     searchTimeout = window.setTimeout(() => {
-      currentSearch = searchInput.value.toLowerCase().trim();
+      let query = searchInput.value.trim();
+      if (query.length > SEARCH_MAX_LEN) {
+        query = query.slice(0, SEARCH_MAX_LEN);
+        searchInput.value = query;
+      }
+      currentSearch = query.toLowerCase();
       applyFilters();
     }, 200);
   });
