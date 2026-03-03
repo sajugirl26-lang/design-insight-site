@@ -51,16 +51,19 @@ const noveltyLabels: Record<string, string> = {
 };
 
 const accentColor = groupColors[channelGroup] || '#f0c040';
-const displayDate = date || publishedAt;
+const displayDate = publishedAt || date;
 ---
 
 <article class="timeline-card" data-video-id={videoId} data-categories={JSON.stringify(categories)}>
   <div class="card-accent" style={`background: ${accentColor}`}></div>
 
-  <!-- Bookmark — top right -->
+  <!-- State buttons — top right, vertically stacked -->
   <div class="card-state-top">
     <button class="btn-bookmark" data-video-id={videoId} title="관심 저장">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg>
+    </button>
+    <button class="btn-read-check" data-video-id={videoId} title="읽음 처리">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
     </button>
   </div>
 
@@ -86,10 +89,6 @@ const displayDate = date || publishedAt;
           YouTube
         </a>
       </div>
-      <!-- Read-check — bottom right -->
-      <button class="btn-read-check" data-video-id={videoId} title="읽음 처리">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-      </button>
     </div>
   </div>
 
@@ -243,12 +242,15 @@ const displayDate = date || publishedAt;
     overflow: hidden;
   }
 
-  /* Bookmark — absolute top-right */
+  /* State buttons — absolute top-right, vertically stacked */
   .card-state-top {
     position: absolute;
     top: 0.5rem;
     right: 0.5rem;
     z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
   }
 
   .btn-bookmark,
@@ -256,8 +258,8 @@ const displayDate = date || publishedAt;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(4px);
@@ -306,7 +308,6 @@ const displayDate = date || publishedAt;
 
   .card-bottom {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     gap: 0.75rem;
   }
@@ -325,11 +326,11 @@ const displayDate = date || publishedAt;
     gap: 0.375rem;
     background: var(--color-surface);
     border: 1px solid var(--color-border);
-    padding: 0.4rem 0.875rem;
+    padding: 0.5rem 1rem;
     border-radius: 6px;
     cursor: pointer;
     font-family: var(--font-label);
-    font-size: var(--fs-xs);
+    font-size: var(--fs-small);
     font-weight: 600;
     transition: all var(--duration) var(--ease);
     text-decoration: none;
@@ -609,8 +610,8 @@ const displayDate = date || publishedAt;
     }
     .btn-bookmark,
     .btn-read-check {
-      width: 36px;
-      height: 36px;
+      width: 32px;
+      height: 32px;
     }
     .card-title {
       padding-right: 3.5rem;

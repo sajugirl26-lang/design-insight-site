@@ -79,7 +79,7 @@ const uniqueChannels = new Set(cards.map((c: any) => c.channel)).size;
 
 <script>
   import { initCardStateButtons } from '../scripts/cardState';
-  initCardStateButtons();
+  initCardStateButtons({ hideReadOnIndex: true });
 
   // Modal open/close
   document.querySelectorAll('.btn-expand').forEach(btn => {
@@ -136,6 +136,11 @@ const uniqueChannels = new Set(cards.map((c: any) => c.channel)).size;
       const cards = document.querySelectorAll('.timeline-card');
 
       cards.forEach(card => {
+        // Always hide read cards on index
+        if (card.classList.contains('is-read')) {
+          (card as HTMLElement).style.display = 'none';
+          return;
+        }
         if (category === 'all') {
           (card as HTMLElement).style.display = '';
           return;
@@ -155,16 +160,28 @@ const uniqueChannels = new Set(cards.map((c: any) => c.channel)).size;
       const cards = document.querySelectorAll('.timeline-card');
 
       if (!query) {
-        cards.forEach(card => (card as HTMLElement).style.display = '');
+        cards.forEach(card => {
+          // Don't show read cards even when clearing search
+          if (card.classList.contains('is-read')) {
+            (card as HTMLElement).style.display = 'none';
+          } else {
+            (card as HTMLElement).style.display = '';
+          }
+        });
         return;
       }
 
       cards.forEach(card => {
+        if (card.classList.contains('is-read')) {
+          (card as HTMLElement).style.display = 'none';
+          return;
+        }
         const text = card.textContent?.toLowerCase() || '';
         (card as HTMLElement).style.display = text.includes(query) ? '' : 'none';
       });
     });
   }
+
 </script>
 
 <style>
