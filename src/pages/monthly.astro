@@ -54,6 +54,7 @@ const GROUP_NAMES: Record<string, string> = {
   studio_business: '스튜디오 창업',
   branding_process: '브랜딩',
   my_playlist: '내 재생목록',
+  korean_creators: '한국 크리에이터',
 };
 
 // Month label (e.g. 2026-02 → 2026년 2월)
@@ -511,6 +512,7 @@ const totalInsights = cards.flatMap((c: any) => c.insights || []).length;
   [data-group="studio_business"] { background: #0d9488; }
   [data-group="branding_process"] { background: #7c3aed; }
   [data-group="my_playlist"] { background: #16a34a; }
+  [data-group="korean_creators"] { background: #e55b00; }
   .group-name { flex: 1; color: var(--color-text); font-weight: 500; }
   .group-count {
     background: var(--color-surface);
