@@ -49,7 +49,7 @@ const currentPath = Astro.url.pathname.replace(base, '') || '/';
           <a href={`${base}/library`} class={currentPath.startsWith('/library') ? 'active' : ''}>라이브러리</a>
           <a href={`${base}/overview`} class={currentPath.startsWith('/overview') ? 'active' : ''}>총정리</a>
           <a href={`${base}/youtubers`} class={currentPath.startsWith('/youtubers') ? 'active' : ''}>유튜버</a>
-          <a href={`${base}/monthly`} class={currentPath.startsWith('/monthly') ? 'active' : ''}>월간</a>
+          <a href={`${base}/monthly`} class={currentPath.startsWith('/monthly') ? 'active' : ''}>분석</a>
           <a href={`${base}/ranking`} class={currentPath.startsWith('/ranking') ? 'active' : ''}>랭킹</a>
           <a href={`${base}/status`} class={currentPath.startsWith('/status') ? 'active' : ''}>상태</a>
         </nav>

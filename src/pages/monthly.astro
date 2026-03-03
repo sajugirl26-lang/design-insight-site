@@ -1,59 +1,613 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { readFileSync } from 'fs';
+import { fileURLToPath } from 'url';
+import path from 'path';
+
+// Load timeline data at build time
+let cards: any[] = [];
+try {
+  const dataPath = path.join(process.cwd(), 'public/data/timeline.json');
+  const raw = readFileSync(dataPath, 'utf-8');
+  cards = JSON.parse(raw).cards || [];
+} catch {}
+
+// Group cards by month (using published_at first, then date)
+const byMonth: Record<string, any[]> = {};
+for (const c of cards) {
+  const pub = c.published_at || c.date || '';
+  const month = pub.slice(0, 7);
+  if (!month) continue;
+  if (!byMonth[month]) byMonth[month] = [];
+  byMonth[month].push(c);
+}
+
+// Sort months descending, exclude current month if < 10 cards
+const months = Object.keys(byMonth)
+  .sort()
+  .reverse()
+  .filter(m => byMonth[m].length >= 5);
+
+// Category display names
+const CAT_NAMES: Record<string, string> = {
+  motion_3d: '3D / 모션그래픽',
+  tools_workflow: '툴 & 워크플로',
+  tutorial_technique: '튜토리얼 & 기법',
+  career_business: '커리어 & 비즈니스',
+  ai_design: 'AI & 디자인',
+  industry_opinion: '업계 오피니언',
+  web_design: '웹 디자인',
+  branding: '브랜딩',
+  creative_process: '크리에이티브 프로세스',
+  visual_culture: '비주얼 컬처',
+};
+
+function getCatName(key: string): string {
+  return CAT_NAMES[key] || key;
+}
+
+// Group display names
+const GROUP_NAMES: Record<string, string> = {
+  vision_opinion: 'AI & 오피니언',
+  ai_3d_motion: 'AI x 3D / 모션',
+  media_art: '미디어아트',
+  studio_business: '스튜디오 창업',
+  branding_process: '브랜딩',
+  my_playlist: '내 재생목록',
+};
+
+// Month label (e.g. 2026-02 → 2026년 2월)
+function monthLabel(m: string): string {
+  const [y, mo] = m.split('-');
+  return `${y}년 ${parseInt(mo)}월`;
+}
+
+// Build per-month stats
+interface MonthStats {
+  month: string;
+  label: string;
+  cardCount: number;
+  insightCount: number;
+  topChannels: [string, number][];
+  topCategories: [string, number][];
+  topKeywords: [string, number][];
+  highNoveltyInsights: any[];
+  groupBreakdown: [string, number][];
+}
+
+function buildStats(month: string): MonthStats {
+  const mc = byMonth[month];
+  const allInsights = mc.flatMap((c: any) => c.insights || []);
+  const allKeywords = mc.flatMap((c: any) => c.keywords || []);
+
+  const channelCount: Record<string, number> = {};
+  const catCount: Record<string, number> = {};
+  const kwCount: Record<string, number> = {};
+  const groupCount: Record<string, number> = {};
+
+  for (const c of mc) {
+    const ch = c.channel || '';
+    channelCount[ch] = (channelCount[ch] || 0) + 1;
+    const g = c.channel_group || '';
+    groupCount[g] = (groupCount[g] || 0) + 1;
+    for (const cat of c.categories || []) {
+      catCount[cat] = (catCount[cat] || 0) + 1;
+    }
+  }
+  for (const kw of allKeywords) {
+    kwCount[kw] = (kwCount[kw] || 0) + 1;
+  }
+
+  const sort = (obj: Record<string, number>) =>
+    Object.entries(obj).sort((a, b) => b[1] - a[1]);
+
+  const highNovelty = allInsights
+    .filter((ins: any) => ins.novelty_raw === 'high')
+    .slice(0, 6);
+
+  return {
+    month,
+    label: monthLabel(month),
+    cardCount: mc.length,
+    insightCount: allInsights.length,
+    topChannels: sort(channelCount).slice(0, 6) as [string, number][],
+    topCategories: sort(catCount).slice(0, 6) as [string, number][],
+    topKeywords: sort(kwCount).slice(0, 12) as [string, number][],
+    highNoveltyInsights: highNovelty,
+    groupBreakdown: sort(groupCount).slice(0, 6) as [string, number][],
+  };
+}
+
+const monthStats: MonthStats[] = months.map(buildStats);
+const totalCards = cards.length;
+const totalInsights = cards.flatMap((c: any) => c.insights || []).length;
 ---
 
-<Layout title="월간 리포트">
-  <section class="monthly-section">
-    <div class="coming-soon">
-      <div class="icon-wrap">
-        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-        </svg>
-      </div>
-      <h1 class="section-title">월간 리포트</h1>
-      <p class="desc">월간 재분석(WF5)이 실행되면 종합 리포트가 여기에 표시됩니다.</p>
-      <div class="schedule-info">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-        <span>매월 1~7일에 점진적으로 생성됩니다</span>
-      </div>
+<Layout title="분석">
+  <div class="analysis-page">
+    <!-- Header -->
+    <div class="page-header">
+      <h1 class="page-title">분석</h1>
+      <p class="page-desc">수집된 영상 {totalCards}개 · 인사이트 {totalInsights}개를 월별로 분석합니다.</p>
     </div>
-  </section>
+
+    <!-- Month tabs -->
+    <div class="month-tabs" id="month-tabs">
+      {monthStats.map((s, i) => (
+        <button
+          class={`month-tab ${i === 0 ? 'active' : ''}`}
+          data-month={s.month}
+          onclick="switchMonth(this)"
+        >
+          {s.label}
+          <span class="tab-count">{s.cardCount}</span>
+        </button>
+      ))}
+    </div>
+
+    <!-- Month sections -->
+    {monthStats.map((s, i) => (
+      <div class={`month-section ${i === 0 ? 'active' : ''}`} data-month={s.month} id={`section-${s.month}`}>
+
+        <!-- KPI row -->
+        <div class="kpi-row">
+          <div class="kpi-card">
+            <span class="kpi-value">{s.cardCount}</span>
+            <span class="kpi-label">수집 영상</span>
+          </div>
+          <div class="kpi-card">
+            <span class="kpi-value">{s.insightCount}</span>
+            <span class="kpi-label">인사이트</span>
+          </div>
+          <div class="kpi-card">
+            <span class="kpi-value">{s.topChannels.length}</span>
+            <span class="kpi-label">활성 채널</span>
+          </div>
+          <div class="kpi-card">
+            <span class="kpi-value">{s.highNoveltyInsights.length}</span>
+            <span class="kpi-label">주목 인사이트</span>
+          </div>
+        </div>
+
+        <div class="content-grid">
+          <!-- Left column -->
+          <div class="col-left">
+
+            <!-- Top channels -->
+            <div class="stat-block">
+              <h2 class="block-title">채널별 영상 수</h2>
+              <div class="bar-list">
+                {s.topChannels.map(([ch, n], idx) => {
+                  const max = s.topChannels[0][1];
+                  const pct = Math.round((n / max) * 100);
+                  return (
+                    <div class="bar-item">
+                      <div class="bar-meta">
+                        <span class="bar-rank">#{idx + 1}</span>
+                        <span class="bar-label">{ch}</span>
+                        <span class="bar-val">{n}개</span>
+                      </div>
+                      <div class="bar-track">
+                        <div class="bar-fill" style={`width:${pct}%`}></div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            <!-- Top categories -->
+            <div class="stat-block">
+              <h2 class="block-title">카테고리 분포</h2>
+              <div class="bar-list">
+                {s.topCategories.map(([cat, n], idx) => {
+                  const max = s.topCategories[0][1];
+                  const pct = Math.round((n / max) * 100);
+                  return (
+                    <div class="bar-item">
+                      <div class="bar-meta">
+                        <span class="bar-rank">#{idx + 1}</span>
+                        <span class="bar-label">{getCatName(cat)}</span>
+                        <span class="bar-val">{n}건</span>
+                      </div>
+                      <div class="bar-track">
+                        <div class="bar-fill cat-fill" style={`width:${pct}%`}></div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right column -->
+          <div class="col-right">
+
+            <!-- Keywords -->
+            <div class="stat-block">
+              <h2 class="block-title">주요 키워드</h2>
+              <div class="keyword-cloud">
+                {s.topKeywords.map(([kw, n], idx) => {
+                  const sizes = ['kw-xl', 'kw-lg', 'kw-lg', 'kw-md', 'kw-md', 'kw-md', 'kw-sm', 'kw-sm', 'kw-sm', 'kw-sm', 'kw-xs', 'kw-xs'];
+                  const sz = sizes[idx] || 'kw-xs';
+                  return (
+                    <span class={`keyword-chip ${sz}`}>
+                      {kw}
+                      <sup class="kw-count">{n}</sup>
+                    </span>
+                  );
+                })}
+              </div>
+            </div>
+
+            <!-- Group breakdown -->
+            <div class="stat-block">
+              <h2 class="block-title">채널 그룹</h2>
+              <div class="group-pills">
+                {s.groupBreakdown.map(([g, n]) => (
+                  <div class="group-pill">
+                    <span class="group-dot" data-group={g}></span>
+                    <span class="group-name">{GROUP_NAMES[g] || g}</span>
+                    <span class="group-count">{n}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- High novelty insights -->
+        {s.highNoveltyInsights.length > 0 && (
+          <div class="stat-block novelty-block">
+            <h2 class="block-title">
+              <span class="novelty-badge">HIGH</span>
+              주목할 인사이트
+            </h2>
+            <div class="insight-grid">
+              {s.highNoveltyInsights.map((ins: any) => {
+                const card = byMonth[s.month].find((c: any) =>
+                  (c.insights || []).some((i: any) => i.id === ins.id)
+                );
+                return (
+                  <div class="insight-card">
+                    <div class="insight-header">
+                      <span class="insight-channel">{card?.channel || ''}</span>
+                      <span class="insight-stance" data-stance={ins.stance || 'neutral'}>
+                        {ins.stance === 'positive' ? '긍정' : ins.stance === 'negative' ? '비판' : '중립'}
+                      </span>
+                    </div>
+                    <h3 class="insight-topic">{ins.topic_ko || ins.topic || ''}</h3>
+                    <p class="insight-text">{(ins.text_ko || '').slice(0, 160)}{(ins.text_ko || '').length > 160 ? '…' : ''}</p>
+                    {ins.keywords && ins.keywords.length > 0 && (
+                      <div class="insight-kws">
+                        {ins.keywords.slice(0, 4).map((kw: string) => (
+                          <span class="insight-kw">{kw}</span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
+      </div>
+    ))}
+  </div>
 </Layout>
 
+<script>
+  function switchMonth(btn: HTMLElement) {
+    const month = btn.dataset.month;
+    // tabs
+    document.querySelectorAll('.month-tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    // sections
+    document.querySelectorAll('.month-section').forEach(s => s.classList.remove('active'));
+    const sec = document.getElementById(`section-${month}`);
+    if (sec) sec.classList.add('active');
+  }
+  (window as any).switchMonth = switchMonth;
+</script>
+
 <style>
-  .monthly-section {
-    max-width: 600px;
+  .analysis-page {
+    max-width: var(--max-width);
     margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
   }
-  .coming-soon {
-    text-align: center;
-    padding: 6rem 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.75rem;
+
+  /* Header */
+  .page-header {
+    margin-bottom: 2rem;
   }
-  .icon-wrap {
-    color: var(--color-text-tertiary);
-    margin-bottom: 0.5rem;
+  .page-title {
+    font-size: var(--fs-h1);
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0 0 0.4rem;
   }
-  .desc {
+  .page-desc {
     color: var(--color-text-secondary);
-    font-size: var(--fs-body);
-    max-width: 400px;
-    line-height: var(--lh-body);
+    font-size: var(--fs-small);
+    margin: 0;
   }
-  .schedule-info {
+
+  /* Month tabs */
+  .month-tabs {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 0;
+  }
+  .month-tab {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    margin-top: 0.5rem;
-    padding: 0.4rem 0.875rem;
+    gap: 0.4rem;
+    padding: 0.5rem 1rem;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    font-size: var(--fs-small);
+    font-family: var(--font-sans);
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    transition: color 0.15s, border-color 0.15s;
+    border-radius: 4px 4px 0 0;
+  }
+  .month-tab:hover { color: var(--color-text); }
+  .month-tab.active {
+    color: var(--color-accent);
+    border-bottom-color: var(--color-accent);
+  }
+  .tab-count {
+    font-size: var(--fs-xs);
+    color: var(--color-text-tertiary);
     background: var(--color-surface);
     border: 1px solid var(--color-border);
-    border-radius: 6px;
-    font-family: var(--font-label);
-    font-size: var(--fs-small);
+    border-radius: 10px;
+    padding: 0 0.4rem;
+  }
+
+  /* Month section visibility */
+  .month-section { display: none; }
+  .month-section.active { display: block; }
+
+  /* KPI row */
+  .kpi-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  .kpi-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  .kpi-value {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 700;
+    color: var(--color-text);
+    line-height: 1;
+  }
+  .kpi-label {
+    font-size: var(--fs-xs);
     color: var(--color-text-tertiary);
+    font-weight: 500;
+  }
+
+  /* Content grid */
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Stat blocks */
+  .stat-block {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .col-left .stat-block:last-child,
+  .col-right .stat-block:last-child { margin-bottom: 0; }
+
+  .block-title {
+    font-size: var(--fs-small);
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0 0 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  /* Bar list */
+  .bar-list { display: flex; flex-direction: column; gap: 0.75rem; }
+  .bar-item { display: flex; flex-direction: column; gap: 0.25rem; }
+  .bar-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 0.4rem;
+    font-size: var(--fs-xs);
+  }
+  .bar-rank { color: var(--color-text-tertiary); font-weight: 500; min-width: 1.5rem; }
+  .bar-label { color: var(--color-text); flex: 1; font-weight: 500; }
+  .bar-val { color: var(--color-text-tertiary); margin-left: auto; }
+  .bar-track {
+    height: 6px;
+    background: var(--color-border-subtle);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .bar-fill {
+    height: 100%;
+    background: var(--color-accent);
+    border-radius: 3px;
+    transition: width 0.3s ease;
+  }
+  .cat-fill { background: var(--color-blue); }
+
+  /* Keyword cloud */
+  .keyword-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: baseline;
+  }
+  .keyword-chip {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.2rem;
+    background: var(--color-tag-bg);
+    color: var(--color-tag-text);
+    border-radius: 4px;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: default;
+  }
+  .kw-xl { font-size: 1.25rem; padding: 0.3rem 0.7rem; }
+  .kw-lg { font-size: 1.0625rem; padding: 0.25rem 0.6rem; }
+  .kw-md { font-size: var(--fs-small); padding: 0.2rem 0.55rem; }
+  .kw-sm { font-size: var(--fs-xs); padding: 0.15rem 0.5rem; }
+  .kw-xs { font-size: 0.8125rem; padding: 0.1rem 0.45rem; }
+  .kw-count { font-size: 0.65em; color: var(--color-text-tertiary); font-weight: 400; }
+
+  /* Group pills */
+  .group-pills { display: flex; flex-direction: column; gap: 0.5rem; }
+  .group-pill {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid var(--color-border-subtle);
+    font-size: var(--fs-xs);
+  }
+  .group-pill:last-child { border-bottom: none; }
+  .group-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  [data-group="vision_opinion"] { background: #c08e10; }
+  [data-group="ai_3d_motion"] { background: #2563eb; }
+  [data-group="media_art"] { background: #d63384; }
+  [data-group="studio_business"] { background: #0d9488; }
+  [data-group="branding_process"] { background: #7c3aed; }
+  [data-group="my_playlist"] { background: #16a34a; }
+  .group-name { flex: 1; color: var(--color-text); font-weight: 500; }
+  .group-count {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    padding: 0 0.45rem;
+    font-size: 0.75rem;
+    color: var(--color-text-tertiary);
+  }
+
+  /* Novelty block */
+  .novelty-block { margin-top: 0; }
+  .novelty-badge {
+    display: inline-block;
+    background: var(--color-accent);
+    color: #fff;
+    font-size: 0.625rem;
+    font-weight: 700;
+    padding: 0.15rem 0.4rem;
+    border-radius: 3px;
+    letter-spacing: 0.05em;
+    vertical-align: middle;
+  }
+
+  /* Insight grid */
+  .insight-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+  }
+  .insight-card {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 1.125rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .insight-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+  .insight-channel {
+    font-size: var(--fs-xs);
+    color: var(--color-accent);
+    font-weight: 600;
+  }
+  .insight-stance {
+    font-size: 0.7rem;
+    padding: 0.1rem 0.4rem;
+    border-radius: 3px;
+    font-weight: 600;
+  }
+  [data-stance="positive"] { background: rgba(22,163,74,0.1); color: #16a34a; }
+  [data-stance="negative"] { background: rgba(220,38,38,0.1); color: #dc2626; }
+  [data-stance="neutral"] { background: var(--color-border-subtle); color: var(--color-text-tertiary); }
+  .insight-topic {
+    font-size: var(--fs-small);
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0;
+    line-height: var(--lh-tight);
+  }
+  .insight-text {
+    font-size: var(--fs-xs);
+    color: var(--color-text-secondary);
+    line-height: var(--lh-body);
+    margin: 0;
+  }
+  .insight-kws {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    margin-top: 0.25rem;
+  }
+  .insight-kw {
+    font-size: 0.7rem;
+    background: var(--color-tag-bg);
+    color: var(--color-tag-text);
+    border-radius: 3px;
+    padding: 0.1rem 0.35rem;
+    font-weight: 500;
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .content-grid { grid-template-columns: 1fr; }
+    .kpi-row { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 560px) {
+    .analysis-page { padding: 1.5rem 1rem 3rem; }
+    .kpi-row { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+    .kpi-card { padding: 1rem 1.125rem; }
+    .insight-grid { grid-template-columns: 1fr; }
+    .month-tab { padding: 0.4rem 0.75rem; font-size: var(--fs-xs); }
   }
 </style>
