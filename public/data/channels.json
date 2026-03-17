@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-03T10:56:33.614592",
+  "generated_at": "2026-03-17T21:28:30.005733",
   "channels": [
     {
       "name": "The Futur",
@@ -7,9 +7,9 @@
       "group": "vision_opinion",
       "subscribers": "~2.7M",
       "description": "크리에이티브 스튜디오 경영, AI 시대 디자이너 포지셔닝, 가격 전략",
-      "total_videos": 8,
-      "total_insights": 31,
-      "latest_date": "2026-03-02"
+      "total_videos": 10,
+      "total_insights": 37,
+      "latest_date": "2026-03-17"
     },
     {
       "name": "Malewicz",
@@ -37,9 +37,9 @@
       "group": "vision_opinion",
       "subscribers": "~700K",
       "description": "AI 크리에이티브 도구 총정리. 디자이너/아티스트용 AI 도구 큐레이션 전문",
-      "total_videos": 14,
-      "total_insights": 50,
-      "latest_date": "2026-03-02"
+      "total_videos": 16,
+      "total_insights": 56,
+      "latest_date": "2026-03-17"
     },
     {
       "name": "Elliot Ulm",
@@ -77,9 +77,9 @@
       "group": "ai_3d_motion",
       "subscribers": "~10M",
       "description": "AI를 VFX 프로덕션에 실제 적용. 업계 담론을 직접 만듦",
-      "total_videos": 34,
-      "total_insights": 79,
-      "latest_date": "2026-03-02"
+      "total_videos": 38,
+      "total_insights": 90,
+      "latest_date": "2026-03-17"
     },
     {
       "name": "David Ariew",
@@ -97,9 +97,9 @@
       "group": "ai_3d_motion",
       "subscribers": "~150K+",
       "description": "Houdini 프로시져럴 디자인 + AI 통합 워크플로우",
-      "total_videos": 7,
-      "total_insights": 15,
-      "latest_date": "2026-03-02"
+      "total_videos": 9,
+      "total_insights": 19,
+      "latest_date": "2026-03-17"
     },
     {
       "name": "School of Motion",
@@ -107,9 +107,9 @@
       "group": "ai_3d_motion",
       "subscribers": "~500K+",
       "description": "모션 디자인 업계 팟캐스트, 대형 스튜디오 파운더 인터뷰",
-      "total_videos": 45,
-      "total_insights": 118,
-      "latest_date": "2026-03-03"
+      "total_videos": 47,
+      "total_insights": 124,
+      "latest_date": "2026-03-17"
     },
     {
       "name": "eyedesyn",
@@ -217,9 +217,9 @@
       "group": "branding_process",
       "subscribers": "~1M+",
       "description": "브랜딩 비주얼 로직, 레이아웃 분석",
-      "total_videos": 11,
-      "total_insights": 39,
-      "latest_date": "2026-03-02"
+      "total_videos": 13,
+      "total_insights": 45,
+      "latest_date": "2026-03-17"
     },
     {
       "name": "James Barnard",
@@ -237,9 +237,9 @@
       "group": "branding_process",
       "subscribers": "~1M",
       "description": "디자인 비즈니스 모델, 프리랜서→스튜디오 전환",
-      "total_videos": 16,
-      "total_insights": 48,
-      "latest_date": "2026-03-03"
+      "total_videos": 20,
+      "total_insights": 60,
+      "latest_date": "2026-03-17"
     },
     {
       "name": "Beeple",
@@ -247,6 +247,136 @@
       "group": "branding_process",
       "subscribers": "~500K+",
       "description": "매일 1작품 Everydays, $69M 경매. 3D+AI 아트 비즈니스의 가능성",
+      "total_videos": 0,
+      "total_insights": 0,
+      "latest_date": ""
+    },
+    {
+      "name": "StudioBinder",
+      "url": "https://youtube.com/@StudioBinder",
+      "group": "media_art",
+      "subscribers": "~1.5M+",
+      "description": "영화·TV 스토리텔링, 촬영·연출 기법 분석. 시각언어와 내러티브 교차점",
+      "total_videos": 2,
+      "total_insights": 3,
+      "latest_date": "2026-03-17"
+    },
+    {
+      "name": "AInspire",
+      "url": "https://youtube.com/@AInspire_kr",
+      "group": "korean_creators",
+      "subscribers": "~50K+",
+      "description": "한국어. AI 크리에이티브 도구 실전 활용, 디자이너·크리에이터를 위한 AI 워크플로우",
+      "total_videos": 0,
+      "total_insights": 0,
+      "latest_date": ""
+    },
+    {
+      "name": "The House of Tabula",
+      "url": "https://youtube.com/@TheHouseofTabula",
+      "group": "vision_opinion",
+      "subscribers": "~50K+",
+      "description": "크리에이티브 비전, 디자인 철학, 아트 디렉션 관점의 오피니언",
+      "total_videos": 0,
+      "total_insights": 0,
+      "latest_date": ""
+    },
+    {
+      "name": "장PM",
+      "url": "https://youtube.com/@jangpm",
+      "group": "korean_creators",
+      "subscribers": "~100K+",
+      "description": "한국어. 프로덕트 매니지먼트, UX/서비스 기획, IT 커리어 전략",
+      "total_videos": 0,
+      "total_insights": 0,
+      "latest_date": ""
+    },
+    {
+      "name": "Vincent Schwenk",
+      "url": "https://youtube.com/@vincentschwenk",
+      "group": "ai_3d_motion",
+      "subscribers": "~200K+",
+      "description": "3D 모션그래픽 + AI 실험. 절차적 애니메이션, 제너러티브 비주얼 워크플로우",
+      "total_videos": 2,
+      "total_insights": 4,
+      "latest_date": "2026-03-17"
+    },
+    {
+      "name": "DesignCode",
+      "url": "https://youtube.com/@DesignCodeTeam",
+      "group": "branding_process",
+      "subscribers": "~340K+",
+      "description": "Figma·SwiftUI·React 중심 디자인-코드 통합 워크플로우, UI/UX 실무",
+      "total_videos": 0,
+      "total_insights": 0,
+      "latest_date": ""
+    },
+    {
+      "name": "John KOBA Design",
+      "url": "https://youtube.com/@JohnKOBADesign",
+      "group": "branding_process",
+      "subscribers": "~100K+",
+      "description": "로고·그래픽 디자인 실무, 브랜드 아이덴티티 구축 프로세스",
+      "total_videos": 0,
+      "total_insights": 0,
+      "latest_date": ""
+    },
+    {
+      "name": "김그룬",
+      "url": "https://youtube.com/@kimgryun",
+      "group": "korean_creators",
+      "subscribers": "~50K+",
+      "description": "한국어. 크리에이티브 라이프스타일, 디자인 비즈니스, 프리랜서 커리어",
+      "total_videos": 0,
+      "total_insights": 0,
+      "latest_date": ""
+    },
+    {
+      "name": "MJ Design",
+      "url": "https://youtube.com/@MJDESIGN",
+      "group": "korean_creators",
+      "subscribers": "~50K+",
+      "description": "한국어. 그래픽·모션 디자인 튜토리얼, 실무 워크플로우",
+      "total_videos": 0,
+      "total_insights": 0,
+      "latest_date": ""
+    },
+    {
+      "name": "Paddy Cartwright",
+      "url": "https://youtube.com/@paddy.cartwright",
+      "group": "ai_3d_motion",
+      "subscribers": "~100K+",
+      "description": "모션 디자인 + AI 통합, 크리에이티브 커리어 성장 전략",
+      "total_videos": 0,
+      "total_insights": 0,
+      "latest_date": ""
+    },
+    {
+      "name": "Blvckswan",
+      "url": "https://youtube.com/@blvckswan",
+      "group": "studio_business",
+      "subscribers": "~50K+",
+      "description": "크리에이티브 프리랜서 비즈니스, 클라이언트 관리, 디자인 수익화 전략",
+      "total_videos": 0,
+      "total_insights": 0,
+      "latest_date": ""
+    },
+    {
+      "name": "Oren Meets World",
+      "url": "https://youtube.com/@orenmeetsworld",
+      "group": "studio_business",
+      "subscribers": "~100K+",
+      "description": "크리에이터 이코노미, 디지털 노마드, 크리에이티브 비즈니스 실전",
+      "total_videos": 2,
+      "total_insights": 6,
+      "latest_date": "2026-03-17"
+    },
+    {
+      "name": "조코딩",
+      "url": "https://youtube.com/@jocoding",
+      "group": "korean_creators",
+      "subscribers": "~300K+",
+      "description": "한국어. AI 코딩·자동화 실전, 노코드·로우코드 도구로 아이디어 구현",
       "total_videos": 0,
       "total_insights": 0,
       "latest_date": ""
@@ -272,6 +402,14 @@
     "branding_process": {
       "name_ko": "브랜딩 & 크리에이티브 프로세스",
       "description": "로고, 브랜딩, 디자인 비즈니스 모델, 실무 워크플로우"
+    },
+    "korean_creators": {
+      "name_ko": "한국 크리에이터",
+      "description": "한국어 디자인·AI·크리에이티브 채널"
+    },
+    "my_playlist": {
+      "name_ko": "내 재생목록",
+      "description": "직접 저장한 YouTube 재생목록 영상"
     }
   }
 }

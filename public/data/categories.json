@@ -1,71 +1,77 @@
 {
-  "generated_at": "2026-03-03T10:56:33.636461",
+  "generated_at": "2026-03-17T21:28:30.054574",
   "categories": [
     {
       "id": "motion_3d",
       "name_ko": "모션 & 3D",
       "description": "모션그래픽, 3D 아트, VFX, 애니메이션",
-      "count": 91
+      "count": 101
     },
     {
       "id": "tools_workflow",
       "name_ko": "도구 & 워크플로우",
       "description": "Figma, 프로토타이핑 도구, 생산성",
-      "count": 86
+      "count": 91
     },
     {
       "id": "tutorial_technique",
       "name_ko": "튜토리얼 & 테크닉",
       "description": "실습, 테크닉 강좌, 팁",
-      "count": 63
+      "count": 70
     },
     {
       "id": "career_business",
       "name_ko": "커리어 & 비즈니스",
       "description": "프리랜싱, 가격 책정, 스튜디오 운영, 취업",
-      "count": 57
+      "count": 64
     },
     {
       "id": "industry_opinion",
       "name_ko": "업계 비평 & 오피니언",
       "description": "디자인 업계 담론, 비평, 전망",
-      "count": 46
+      "count": 52
     },
     {
       "id": "ai_design",
       "name_ko": "AI와 디자인",
       "description": "AI 도구 활용, AI 시대 디자인 변화",
-      "count": 45
+      "count": 50
     },
     {
       "id": "culture_inspiration",
       "name_ko": "문화 & 영감",
       "description": "아트 무브먼트, 문화 비평, 영감 소스",
-      "count": 30
+      "count": 33
     },
     {
       "id": "branding",
       "name_ko": "브랜딩 & 아이덴티티",
       "description": "로고, 브랜드 전략, 비주얼 아이덴티티",
-      "count": 20
+      "count": 25
     },
     {
       "id": "creative_coding",
       "name_ko": "크리에이티브 코딩 & 제너러티브",
       "description": "제너러티브 아트, 인터랙티브, TouchDesigner",
-      "count": 18
+      "count": 21
     },
     {
       "id": "web_design",
       "name_ko": "웹 디자인 & 개발",
       "description": "웹사이트 디자인, 프론트엔드, 반응형",
-      "count": 15
+      "count": 18
     },
     {
       "id": "ui_visual",
       "name_ko": "UI & 비주얼 디자인",
       "description": "인터페이스 디자인, 비주얼 트렌드",
-      "count": 9
+      "count": 10
+    },
+    {
+      "id": "media_art",
+      "name_ko": "미디어아트 & 설치",
+      "description": "인스톨레이션, 미디어아트, 디지털 아트",
+      "count": 4
     },
     {
       "id": "ux_research",
@@ -74,16 +80,10 @@
       "count": 3
     },
     {
-      "id": "media_art",
-      "name_ko": "미디어아트 & 설치",
-      "description": "인스톨레이션, 미디어아트, 디지털 아트",
-      "count": 3
-    },
-    {
       "id": "typography",
       "name_ko": "타이포그래피 & 레이아웃",
       "description": "타입 디자인, 레이아웃, 그리드 시스템",
-      "count": 2
+      "count": 3
     },
     {
       "id": "design_system",
